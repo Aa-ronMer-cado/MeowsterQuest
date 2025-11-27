@@ -12,23 +12,24 @@ public class Tower {
         TextUtil.printTitle("LEVEL " + level + " - " + title);
         TextUtil.typewriterPrintCentered(dialogue, 40); //FIX SOON
         System.out.println();
-        Main.pause(1500);
+        Main.pause(1000);
 
         BattleSystem battle = new BattleSystem(player, enemy);
         boolean victory = battle.startBattle();
 
         if (victory) {
             player.levelUp(level);
-            System.out.println("\n VICTORY! "); //EMOJI?
-            System.out.println("+" + 100 + " Max HP");
-            System.out.println("Weapon upgraded to Level " + (level + 1));
-            System.out.println("Armor upgraded to Level " + (level + 1));
-            Main.pause(2000);
+            TextUtil.typewriterPrint("\n VICTORY! "); //EMOJI?
+            TextUtil.typewriterPrint("+" + 100 + " Max HP");
+            TextUtil.typewriterPrint("Weapon upgraded to Level " + (level + 1));
+            TextUtil.typewriterPrint("Armor upgraded to Level " + (level + 1));
+            Main.pause(1000);
             return true;
         } else {
-            System.out.println("\n DEFEAT "); //EMOJI?
+            TextUtil.typewriterPrint("\n DEFEAT "); //EMOJI?
+            Main.pause(5000);
             System.out.println("Returning to checkpoint...");
-            Main.pause(2000);
+            Main.pause(5000);
 
             // Retry the level
             return battleLevel(player, level, title, dialogue,
@@ -38,11 +39,9 @@ public class Tower {
         }
     }
 
-    public void rescuePrisoner(String name) {
+    public void rescuePrisoner(String name) { //FIX PRINTING
         Main.clearScreen();
-        System.out.println("\n" + "=".repeat(60));
-        TextUtil.printCentered("You rescued " + name + "!", 60);
-        System.out.println("=".repeat(60));
+        TextUtil.typewriterPrintCentered(" --- You rescued " + name + "! ---", 40, 157);
         Main.pause(2000);
     }
 

@@ -106,6 +106,6 @@ public class BattleSystem {
             player.takeDamage(damage);
         }
 
-        Main.pause(1500);
+        Main.pause(500);
     }
 }

@@ -1,6 +1,7 @@
 package entity.player;
 
 import combat.Attack;
+import util.TextUtil;
 
 public class Player {
     private String name;
@@ -35,6 +36,7 @@ public class Player {
 
     public void displayStats() {
         System.out.println("\n--- " + name + " Stats ---");
+        System.out.println(breed.getAsciiArt());
         System.out.println("Breed: " + breed.name() + " (" + breed.getWeapon() + ")");
         System.out.println("Color: " + color.name() + " (" + color.getAbility() + ")");
         System.out.println("HP: " + currentHp + "/" + maxHp);
@@ -54,12 +56,12 @@ public class Player {
 
         if (defendActive) {
             actualDamage /= 2;
-            System.out.println(name + "'s defense halves the damage!");
+            TextUtil.typewriterPrint(name + "'s defense halves the damage!");
             defendActive = false;
         }
 
         if (reflectActive) {
-            System.out.println(name + "'s Reflect Shield deflects all damage!");
+            TextUtil.typewriterPrint(name + "'s Reflect Shield deflects all damage!");
             actualDamage = 0;
             reflectActive = false;
         }
@@ -67,7 +69,7 @@ public class Player {
         currentHp -= actualDamage;
         if (currentHp < 0) currentHp = 0;
 
-        System.out.println(name + " takes " + actualDamage + " damage! HP: " + currentHp + "/" + maxHp);
+        TextUtil.typewriterPrint(name + " takes " + actualDamage + " damage! HP: " + currentHp + "/" + maxHp);
     }
 
     public int attack(int attackIndex) {
@@ -79,7 +81,7 @@ public class Player {
         Attack attack = attacks[attackIndex];
 
         if (energy < attack.getEnergyCost()) {
-            System.out.println("Not enough energy!");
+        TextUtil.typewriterPrint("Not enough energy!");
             return 0;
         }
 
@@ -88,13 +90,13 @@ public class Player {
         double weaponMultiplier = 1.0 + (weaponLevel * 0.5);
         int damage = (int) (attack.getDamage() * weaponMultiplier);
 
-        System.out.println(name + " uses " + attack.getName() + "!");
+        TextUtil.typewriterPrint(name + " uses " + attack.getName() + "!");
         return damage;
     }
 
     public void defend() {
         defendActive = true;
-        System.out.println(name + " takes a defensive stance!");
+        TextUtil.typewriterPrint(name + " takes a defensive stance!");
     }
 
     public void regenerateEnergy() {
@@ -110,28 +112,28 @@ public class Player {
     }
 
     private void triggerSpecialAbility() {
-        System.out.println("\n✨ " + color.getAbility() + " activates! ✨");
+        TextUtil.typewriterPrint("\n✨ " + color.getAbility() + " activates! ✨");
 
         switch (color) {
             case ORANGE:
-                System.out.println("Radiant energy explodes! (300 damage will be dealt)");
+                TextUtil.typewriterPrint("Radiant energy explodes! (300 damage will be dealt)");
                 break;
             case BLACK:
-                System.out.println("Shadow Speed grants an extra turn!");
+                TextUtil.typewriterPrint("Shadow Speed grants an extra turn!");
                 break;
             case WHITE:
                 heal(200);
                 break;
             case TILAPIA:
                 reflectActive = true;
-                System.out.println("Reflect Shield activated for this turn!");
+                TextUtil.typewriterPrint("Reflect Shield activated for this turn!");
                 break;
         }
     }
 
     public void heal(int amount) {
         currentHp = Math.min(maxHp, currentHp + amount);
-        System.out.println(name + " restores " + amount + " HP! HP: " + currentHp + "/" + maxHp);
+        TextUtil.typewriterPrint(name + " restores " + amount + " HP! HP: " + currentHp + "/" + maxHp);
     }
 
     public void levelUp(int level) {

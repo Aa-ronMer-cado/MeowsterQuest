@@ -48,37 +48,37 @@ public class Menu {
         Main.pause(1000);
 
         System.out.println();
-        System.out.println("[Prisoner]: \"Because of you, our kin are free at last!\""); //PUT DELAY
+        Main.typewriterPrint("[Prisoner]: \"Because of you, our kin are free at last!\"", 40); //PUT DELAY
         Main.pause(1000);
 
-        System.out.println("[Prisoner]: \"Pawshire will never forget your courage and sacrifice.\""); //PUT DELAY
+        Main.typewriterPrint("[Prisoner]: \"Pawshire will never forget your courage and sacrifice.\"", 40); //PUT DELAY
         Main.pause(1500);
 
         System.out.println();
-        TextUtil.printCentered("🎊 Prisoners reunite! 🎊");
+        TextUtil.typewriterPrintCentered(" Prisoners reunite! ", 40);
         TextUtil.typewriterPrintCentered("Rowma, Necko, and Cleo are safe!", 35);
         Main.pause(2000);
     }
 
     public void showEndScreen() { //FIX TEXTUTIL PRINT
         Main.clearScreen();
-        TextUtil.printTitle("GAME COMPLETE", 60);
+        TextUtil.printMiddle("----- GAME COMPLETE ------", 157);
 
         System.out.print("Rate your experience (1-5): ");
         Main.getIntInput(1, 5);
 
         System.out.println();
-        System.out.println("THANK YOU FOR PLAYING!");
+        TextUtil.printTitle("THANK YOU FOR PLAYING!");
 
         TextUtil.typewriterPrintCentered("Your courage has guided Pawshire to freedom.", 40, 157);
         TextUtil.typewriterPrintCentered("May your journey always be filled with", 40,157);
         TextUtil.typewriterPrintCentered("bravery, wonder, and kindness.", 40, 157);
 
-        System.out.println("\n=== CREDITS ==="); //FIX CREDITS
-        System.out.println("Game Design: GROUP 1");
-        System.out.println("Programming: Java OOP PROGRAMMING");
-        System.out.println("Thanks for playing!");
-        System.out.println("\nPress Enter to return to main menu...");
+        TextUtil.typewriterPrint("\n=== CREDITS ===", 100); //FIX CREDITS
+        TextUtil.typewriterPrint("Game Design: GROUP 1", 100);
+        TextUtil.typewriterPrint("Programming: Java OOP PROGRAMMING", 100);
+        TextUtil.typewriterPrint("Thanks for playing!", 100);
+        TextUtil.typewriterPrint("\nPress Enter to return to main menu...", 100);
         Main.scanner.nextLine();
     }
 }

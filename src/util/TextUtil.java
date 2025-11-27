@@ -43,4 +43,37 @@ public class TextUtil {
         System.out.println(space + title);
         System.out.println("=".repeat(width));
     }
+
+
+    public static void printMiddle(String title, int width) {
+        int spacing = Math.max(0, (width - title.length()) / 2);
+        String space = " ".repeat(spacing);
+
+        System.out.println(space + title);
+    }
+
+    //TO DELAY TEXT
+    public static void pause(int milliseconds) {
+        try {
+            Thread.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    public static void typewriterPrint(String text, int delayMs) {
+        for (char c : text.toCharArray()) {
+            System.out.print(c);
+            try {
+                Thread.sleep(delayMs);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
+        System.out.println();
+    }
+
+    public static void typewriterPrint(String text) {
+        typewriterPrint(text, 40);
+    }
 }

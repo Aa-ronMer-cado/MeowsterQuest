@@ -1,6 +1,7 @@
 package entity;
 
 import core.Main;
+import util.TextUtil;
 
 public class Enemy {
     private String name;
@@ -28,30 +29,30 @@ public class Enemy {
         currentHp -= actualDamage;
         if (currentHp < 0) currentHp = 0;
 
-        System.out.println(name + " takes " + actualDamage + " damage! HP: " + currentHp + "/" + maxHp);
+        TextUtil.typewriterPrint(name + " takes " + actualDamage + " damage! HP: " + currentHp + "/" + maxHp);
     }
 
     public int performAction() {
         turnCount++;
 
         if (level == 3 && turnCount % 3 == 0) {
-            System.out.println(name + " unleashes a devastating special attack!");
+            TextUtil.typewriterPrint(name + " unleashes a devastating special attack!");
             return 250;
         }
 
         if (canDefend && Main.random.nextInt(100) < 30) {
-            System.out.println(name + " takes a defensive stance!");
+            TextUtil.typewriterPrint(name + " takes a defensive stance!");
             return 0;
         }
 
         // Random attack
         int attackIndex = Main.random.nextInt(attacks.length);
         int damage = attacks[attackIndex];
-        System.out.println(name + " attacks with force!");
+        TextUtil.typewriterPrint(name + " attacks with force!");
         return damage;
     }
 
-    public void displayStats() {
+    public void displayStats() { //PUT ASCII CHAR
         System.out.println("--- " + name + " Stats ---");
         System.out.println("Level: " + level);
         System.out.println("HP: " + currentHp + "/" + maxHp);
