@@ -1,6 +1,7 @@
 package entity.player;
 
 import combat.Attack;
+import util.ColorUtil;
 
 public enum CatBreed {
     PERSIAN("Enchanted Book", "Mystic Robe", 150,
@@ -20,37 +21,37 @@ public enum CatBreed {
         """
     ),
 
-RAGDOLL(
-    "Chakrams",
-    "Hunter's Vest",
-    120,
-    new Attack[]{
-        new Attack("Scratch", 90, 5),
-        new Attack("Pounce", 130, 25),
-        new Attack("Roaring Swipe", 180, 60)
-    },
-    """
-         |\\---/|
-         | ,_, |
-         \\_`_/-..----.
-       ___/ `   ' ,""+ \\ 
-      (__...'   __\\    |`.___.';
-       (_,...'(_,.`__)/'..
-    """
-),
+    RAGDOLL(
+        "Chakrams",
+        "Hunter's Vest",
+        120,
+        new Attack[]{
+            new Attack("Scratch", 90, 5),
+            new Attack("Pounce", 130, 25),
+            new Attack("Roaring Swipe", 180, 60)
+        },
+        """
+             |\\---/|
+             | ,_, |
+              \\_`_/-..----.
+           ___/ `   ' ,""+ \\ 
+          (__...'   __\\    |`.___.';
+           (_,...'(_,.`__)/'..
+        """
+    ),
 
     PUSKAL("Shield", "Gauntlets of Valor", 100,
-            new Attack[]{
-                new Attack("Heavy Hit", 80, 0),
-                new Attack("Iron Paw", 120, 20),
-                new Attack("Crushing Tail", 170, 50)
-            },
-            """
+        new Attack[]{
+            new Attack("Heavy Hit", 80, 0),
+            new Attack("Iron Paw", 120, 20),
+            new Attack("Crushing Tail", 170, 50)
+        },
+        """
             __._     _,-'""`-._
             (,-.`._,'(       |\\`-/|
                 `-.-' \\ )-`( , o o)
                     `-    \\`_`"'-
-            """
+        """
     );
 
     private final String weapon;
@@ -72,4 +73,14 @@ RAGDOLL(
     public int getMaxEnergy() { return maxEnergy; }
     public Attack[] getAttacks() { return attacks; }
     public String getAsciiArt() { return asciiArt; }
+
+    // ADD THIS METHOD - Get colored ASCII art based on cat color
+public String ColoredAsciiArt(CatColor color) {
+    return switch (color) {
+        case ORANGE -> ColorUtil.orange(asciiArt);
+        case BLACK -> ColorUtil.grey(asciiArt);
+        case WHITE -> asciiArt;  // No color
+        case TILAPIA -> ColorUtil.brown(asciiArt);
+    };
+}
 }

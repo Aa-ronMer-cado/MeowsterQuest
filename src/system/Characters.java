@@ -48,7 +48,7 @@ public class Characters {
         //FIX delay and print center
         Main.clearScreen();
         System.out.println("\n" + "=".repeat(157));
-        TextUtil.typewriterPrintCentered("The " + color.name() + " " + breed.name() +  " named " + name + 
+        TextUtil.typewriterPrintCentered("The " + color.ColoredName() + " " + breed.name() +  " named " + name + 
         " is ready for battle! It leaps into action, claws flashing and eyes burning with courage.", 30);
         TextUtil.typewriterPrintCentered("The fate of Pawshire rests on its paws!", 30);
         System.out.println("=".repeat(157));

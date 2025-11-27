@@ -35,15 +35,15 @@ public class Player {
     }
 
     public void displayStats() {
-        System.out.println("\n--- " + name + " Stats ---");
-        System.out.println(breed.getAsciiArt());
-        System.out.println("Breed: " + breed.name() + " (" + breed.getWeapon() + ")");
-        System.out.println("Color: " + color.name() + " (" + color.getAbility() + ")");
-        System.out.println("HP: " + currentHp + "/" + maxHp);
-        System.out.println("DEF: " + getTotalDefense());
-        System.out.println("Energy: " + energy + "/" + maxEnergy);
-        System.out.println("Weapon Level: " + weaponLevel);
-        System.out.println("Armor Level: " + armorLevel);
+    System.out.println("\n--- " + name + " Stats ---");
+    System.out.println(breed.ColoredAsciiArt(color));
+    System.out.println("Breed: " + breed.name() + " (" + breed.getWeapon() + ")");
+    System.out.println("Color: " + color.ColoredName() + " (" + color.ColoredAbility() + ")");
+    System.out.println("HP: " + currentHp + "/" + maxHp);
+    System.out.println("DEF: " + getTotalDefense());
+    System.out.println("Energy: " + energy + "/" + maxEnergy);
+    System.out.println("Weapon Level: " + weaponLevel);
+    System.out.println("Armor Level: " + armorLevel);
     }
 
     public Attack[] getAttacks() {
