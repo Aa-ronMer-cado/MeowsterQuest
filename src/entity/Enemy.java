@@ -1,83 +1,63 @@
 package entity;
 
-import core.Main;
-import util.TextUtil;
+import core.ConsoleIO;
+import java.util.Random;
+
 
 public class Enemy {
-    private String name;
-    private int level;
-    private int maxHp;
+    private final String name;
+    private final int level;
+    private final int maxHp;
     private int currentHp;
-    private int defense;
-    private int[] attacks;
-    private int turnCount;
-    private boolean canDefend;
-    private String idleAscii;
-    private String color;
+    private final int defense;
+    private final int[] attacks; // damage values for simple AI
+    private final String idleAscii;
+    private final String color; // textual color name for display
 
     public Enemy(String name, int level, int maxHp, int defense, int[] attacks, String idleAscii, String color) {
-    this.name = name;
-    this.level = level;
-    this.maxHp = maxHp;
-    this.currentHp = maxHp;
-    this.defense = defense;
-    this.attacks = attacks;
-    this.idleAscii = idleAscii;
-    this.color = color;
-    this.turnCount = 0;
-    this.canDefend = level >= 2;
-}
+        this.name = name;
+        this.level = level;
+        this.maxHp = maxHp;
+        this.currentHp = maxHp;
+        this.defense = defense;
+        this.attacks = attacks.clone();
+        this.idleAscii = idleAscii;
+        this.color = color;
+    }
 
-
-    public void takeDamage(int damage) {
-        int actualDamage = Math.max(0, damage - defense);
-        currentHp -= actualDamage;
-        if (currentHp < 0) currentHp = 0;
-
-        TextUtil.typewriterPrint(name + " takes " + actualDamage + " damage! HP: " + currentHp + "/" + maxHp);
+    public void displayStats(ConsoleIO io) {
+        io.println("\n--- " + name + " Stats ---");
+        if (idleAscii != null && !idleAscii.isEmpty()) {
+            io.println(idleAscii);
+        }
+        io.println("Level: " + level);
+        io.println("HP: " + currentHp + "/" + maxHp);
+        io.println("DEF: " + defense);
     }
 
     public int performAction() {
-        turnCount++;
+        // Simple AI: pick a random attack damage from attacks array
+        if (attacks.length == 0) return 0;
+        int idx = new Random().nextInt(attacks.length);
+        return attacks[idx];
+    }
 
-        if (level == 3 && turnCount % 3 == 0) {
-            System.out.println(idleAscii);
-            TextUtil.typewriterPrint(name + " unleashes a devastating special attack!");
-            return 250;
-        }
+    public void takeDamage(int damage) {
+        int actual = Math.max(0, damage - defense);
+        currentHp -= actual;
+        if (currentHp < 0) currentHp = 0;
+    }
 
-        if (canDefend && Main.random.nextInt(100) < 30) {
-            TextUtil.typewriterPrint(name + " takes a defensive stance!");
-            return 0;
-        }
+    public boolean isAlive() {
+        return currentHp > 0;
+    }
 
-        int attackIndex = Main.random.nextInt(attacks.length);
-        int damage = attacks[attackIndex];
-
-        System.out.println(idleAscii);
-        TextUtil.typewriterPrint(name + " attacks with force!");
-
-    return damage;
-}
-
-
-    public void displayStats() {
-        System.out.println("\n--- " + name + " Stats ---");
-        System.out.println(idleAscii);
-        System.out.println("Level: " + level);
-        System.out.println("HP: " + currentHp + "/" + maxHp);
-        System.out.println("DEF: " + defense);
-}
-
-
-    // Getters
+    // Getters used by Tower when recreating enemy
     public String getName() { return name; }
-    public int getCurrentHp() { return currentHp; }
-    public int getMaxHp() { return maxHp; }
     public int getLevel() { return level; }
+    public int getMaxHp() { return maxHp; }
     public int getDefense() { return defense; }
-    public int[] getAttacks() { return attacks; }
-    public boolean isAlive() { return currentHp > 0; }
+    public int[] getAttacks() { return attacks.clone(); }
     public String getIdleAscii() { return idleAscii; }
     public String getColor() { return color; }
 }

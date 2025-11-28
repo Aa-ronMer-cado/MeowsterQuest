@@ -1,26 +1,32 @@
 package system;
 
-import core.Main;
+import core.ConsoleIO;
+import util.InputUtil;
 import util.TextUtil;
 
 public class Menu {
+    private final ConsoleIO io;
+
+    public Menu(ConsoleIO io) {
+        this.io = io;
+    }
 
     public int showMainMenu() {
-        Main.clearScreen();
-        TextUtil.printTitle("MEOWSTERQUEST: THE RISE OF PAWSHIRE");
+        io.clearScreen();
+        TextUtil.printTitle(io, "MEOWSTERQUEST: THE RISE OF PAWSHIRE");
 
-        System.out.println();
-        System.out.println("MAIN MENU"); //EMOJI
-        System.out.println("1. Play");
-        System.out.println("2. Exit");
-        System.out.print("\nChoose an option: ");
+        io.println("");
+        io.println("MAIN MENU");
+        io.println("1. Play");
+        io.println("2. Exit");
+        io.print("\nChoose an option: ");
 
-        return Main.getIntInput(1, 2);
+        return InputUtil.getIntInput(io, 1, 2);
     }
 
     public void displayIntroduction() {
-        Main.clearScreen();
-        TextUtil.printTitle("INTRODUCTION");
+        io.clearScreen();
+        TextUtil.printTitle(io, "INTRODUCTION");
 
         String[] intro = {
             "Long, long ago, Pawshire purred in harmony...",
@@ -30,55 +36,55 @@ public class Menu {
         };
 
         for (String line : intro) {
-            TextUtil.typewriterPrintCentered(line, 40);
-            Main.pause(10);
+            TextUtil.typewriterPrintCentered(io, line, 40);
+            io.sleepMillis(10);
         }
-        System.out.println();
+        io.println("");
     }
 
     public void showVictorySequence(String playerName) {
-        Main.clearScreen();
-        TextUtil.printTitle("VICTORY!");
+        io.clearScreen();
+        TextUtil.printTitle(io, "VICTORY!");
 
-        TextUtil.typewriterPrintCentered("Pawshire is restored! Calm returns to the land...", 40);
-        System.out.println();
-        Main.pause(1500);
+        TextUtil.typewriterPrintCentered(io, "Pawshire is restored! Calm returns to the land...", 40);
+        io.println("");
+        io.sleepMillis(1500);
 
-        TextUtil.typewriterPrintCentered("The citizens cheer for " + playerName + "!", 35);
-        Main.pause(1000);
+        TextUtil.typewriterPrintCentered(io, "The citizens cheer for " + playerName + "!", 35);
+        io.sleepMillis(1000);
 
-        System.out.println();
-        Main.typewriterPrint("[Prisoner]: \"Because of you, our kin are free at last!\"", 40); //PUT DELAY
-        Main.pause(1000);
+        io.println("");
+        TextUtil.typewriterPrint(io, "[Prisoner]: \"Because of you, our kin are free at last!\"", 40);
+        io.sleepMillis(1000);
 
-        Main.typewriterPrint("[Prisoner]: \"Pawshire will never forget your courage and sacrifice.\"", 40); //PUT DELAY
-        Main.pause(1500);
+        TextUtil.typewriterPrint(io, "[Prisoner]: \"Pawshire will never forget your courage and sacrifice.\"", 40);
+        io.sleepMillis(1500);
 
-        System.out.println();
-        TextUtil.typewriterPrintCentered(" Prisoners reunite! ", 40);
-        TextUtil.typewriterPrintCentered("Rowma, Necko, and Cleo are safe!", 35);
-        Main.pause(2000);
+        io.println("");
+        TextUtil.typewriterPrintCentered(io, " Prisoners reunite! ", 40);
+        TextUtil.typewriterPrintCentered(io, "Rowma, Necko, and Cleo are safe!", 35);
+        io.sleepMillis(2000);
     }
 
-    public void showEndScreen() { //FIX TEXTUTIL PRINT
-        Main.clearScreen();
-        TextUtil.printMiddle("----- GAME COMPLETE ------", 157);
+    public void showEndScreen() {
+        io.clearScreen();
+        TextUtil.printMiddle(io, "----- GAME COMPLETE ------", 157);
 
-        System.out.print("Rate your experience (1-5): ");
-        Main.getIntInput(1, 5);
+        io.print("Rate your experience (1-5): ");
+        InputUtil.getIntInput(io, 1, 5);
 
-        System.out.println();
-        TextUtil.printTitle("THANK YOU FOR PLAYING!");
+        io.println("");
+        TextUtil.printTitle(io, "THANK YOU FOR PLAYING!");
 
-        TextUtil.typewriterPrintCentered("Your courage has guided Pawshire to freedom.", 40, 157);
-        TextUtil.typewriterPrintCentered("May your journey always be filled with", 40,157);
-        TextUtil.typewriterPrintCentered("bravery, wonder, and kindness.", 40, 157);
+        TextUtil.typewriterPrintCentered(io, "Your courage has guided Pawshire to freedom.", 40, 157);
+        TextUtil.typewriterPrintCentered(io, "May your journey always be filled with", 40,157);
+        TextUtil.typewriterPrintCentered(io, "bravery, wonder, and kindness.", 40, 157);
 
-        TextUtil.typewriterPrint("\n=== CREDITS ===", 100); //FIX CREDITS
-        TextUtil.typewriterPrint("Game Design: GROUP 1", 100);
-        TextUtil.typewriterPrint("Programming: Java OOP PROGRAMMING", 100);
-        TextUtil.typewriterPrint("Thanks for playing!", 100);
-        TextUtil.typewriterPrint("\nPress Enter to return to main menu...", 100);
-        Main.scanner.nextLine();
+        TextUtil.typewriterPrint(io, "\n=== CREDITS ===", 100);
+        TextUtil.typewriterPrint(io, "Game Design: GROUP 1", 100);
+        TextUtil.typewriterPrint(io, "Programming: Java OOP PROGRAMMING", 100);
+        TextUtil.typewriterPrint(io, "Thanks for playing!", 100);
+        TextUtil.typewriterPrint(io, "\nPress Enter to return to main menu...", 100);
+        io.readLine();
     }
 }

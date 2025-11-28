@@ -8,8 +8,8 @@ public enum CatColor {
     WHITE("Healing Aura", "Restore 200 HP every 3 turns"),
     TILAPIA("Reflect Shield", "Deflect damage every 3 turns");
 
-    private String ability;
-    private String effect;
+    private final String ability;
+    private final String effect;
 
     CatColor(String ability, String effect) {
         this.ability = ability;
@@ -18,25 +18,22 @@ public enum CatColor {
 
     public String getAbility() { return ability; }
     public String getEffect() { return effect; }
-    
-    // Get colored name
-    public String ColoredName() {
+
+    public String coloredName() {
         return switch (this) {
             case ORANGE -> ColorUtil.orange(this.name());
             case BLACK -> ColorUtil.grey(this.name());
-            case WHITE -> this.name();  // No color
+            case WHITE -> this.name();
             case TILAPIA -> ColorUtil.brown(this.name());
         };
     }
-    
-    // Get colored ability text
-    public String ColoredAbility() {
+
+    public String coloredAbility() {
         return switch (this) {
             case ORANGE -> ColorUtil.orange(ability);
             case BLACK -> ColorUtil.grey(ability);
-            case WHITE -> ability;  // FIXED: was this.name(), now ability
+            case WHITE -> ability;
             case TILAPIA -> ColorUtil.brown(ability);
         };
     }
-
 }

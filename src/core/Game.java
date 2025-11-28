@@ -7,14 +7,16 @@ import system.Tower;
 
 public class Game {
     private Player player;
-    private Menu menuManager;
-    private Characters characterManager;
-    private Tower towerManager;
+    private final Menu menuManager;
+    private final Characters characterManager;
+    private final Tower towerManager;
+    private final ConsoleIO io;
 
-    public Game() {
-        this.menuManager = new Menu();
-        this.characterManager = new Characters();
-        this.towerManager = new Tower();
+    public Game(Menu menuManager, Characters characterManager, Tower towerManager, ConsoleIO io) {
+        this.menuManager = menuManager;
+        this.characterManager = characterManager;
+        this.towerManager = towerManager;
+        this.io = io;
     }
 
     public void start() {
@@ -25,15 +27,15 @@ public class Game {
         int choice = menuManager.showMainMenu();
 
         if (choice == 1) {
-            Main.pause(1000);
+            io.sleepMillis(1000);
             startGame();
         } else {
-            System.out.println("\nThank you for visiting Pawshire!");
+            io.println("\nThank you for visiting Pawshire!");
         }
     }
 
     private void startGame() {
-        Main.clearScreen();
+        io.clearScreen();
         menuManager.displayIntroduction();
         player = characterManager.createCharacter();
         characterManager.showNPCEncounter(player.getName());

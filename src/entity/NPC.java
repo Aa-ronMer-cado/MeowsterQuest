@@ -1,19 +1,26 @@
 package entity;
 
-import core.Main;
+import core.ConsoleIO;
 
 public class NPC {
-    private String name;
-    private String role;
+    private final String name;
+    private final String role;
+    private final ConsoleIO io;
 
-    public NPC(String name, String role) {
+    public NPC(String name, String role, ConsoleIO io) {
         this.name = name;
         this.role = role;
+        this.io = io;
     }
 
     public void speak(String dialogue) {
-        System.out.print("\n[" + name + "]: ");
-        Main.typewriterPrint(dialogue, 35);
+        io.print("\n[" + name + "]: ");
+        // simple typewriter effect using io
+        for (char c : dialogue.toCharArray()) {
+            io.print(String.valueOf(c));
+            io.sleepMillis(35);
+        }
+        io.println("");
     }
 
     public String getName() { return name; }
