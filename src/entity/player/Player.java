@@ -1,6 +1,8 @@
 package entity.player;
 
 import combat.Attack;
+import core.Main;
+import util.ColorUtil;
 import util.TextUtil;
 
 public class Player {
@@ -45,6 +47,20 @@ public class Player {
     System.out.println("Weapon Level: " + weaponLevel);
     System.out.println("Armor Level: " + armorLevel);
     }
+
+    public void showPlayerAttackArt() {
+    String attackArt = breed.getAsciiArtAttack();
+
+    switch (color) {
+        case ORANGE -> attackArt = ColorUtil.orange(attackArt);
+        case BLACK -> attackArt = ColorUtil.grey(attackArt);
+        case WHITE -> { /* no color */ }
+        case TILAPIA -> attackArt = ColorUtil.brown(attackArt);
+    }
+
+    System.out.println(attackArt);
+    Main.pause(500);
+}
 
     public Attack[] getAttacks() {
         return breed.getAttacks();
@@ -155,5 +171,6 @@ public class Player {
     public int getEnergy() { return energy; }
     public int getTurnCount() { return turnCount; }
     public CatColor getColor() { return color; }
+    public CatBreed getBreed() { return breed; }
     public boolean isAlive() { return currentHp > 0; }
 }

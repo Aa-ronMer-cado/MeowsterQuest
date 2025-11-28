@@ -20,13 +20,13 @@ public class Characters {
 
         System.out.println("\n=== Choose Your Cat Breed (Class) ===\n");
         System.out.println("1. Persian (Mage) - Balanced magic user");
-        System.out.println(CatBreed.PERSIAN.getAsciiArt());
+        System.out.println(CatBreed.PERSIAN.getAsciiArtIdle());
 
         System.out.println("2. Ragdoll (Ranged) - Quick and agile");
-        System.out.println(CatBreed.RAGDOLL.getAsciiArt());
+        System.out.println(CatBreed.RAGDOLL.getAsciiArtIdle());
 
         System.out.println("3. Puskal (Warrior) - Strong and tough");
-        System.out.println(CatBreed.PUSKAL.getAsciiArt());
+        System.out.println(CatBreed.PUSKAL.getAsciiArtIdle());
 
         System.out.print("\nSelect breed (1-3): ");
         int breedChoice = Main.getIntInput(1, 3);

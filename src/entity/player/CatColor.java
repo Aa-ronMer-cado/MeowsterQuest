@@ -38,4 +38,5 @@ public enum CatColor {
             case TILAPIA -> ColorUtil.brown(ability);
         };
     }
+
 }

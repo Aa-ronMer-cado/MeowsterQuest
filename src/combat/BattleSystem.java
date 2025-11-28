@@ -2,8 +2,10 @@ package combat;
 
 import core.Main;
 import entity.Enemy;
+import entity.player.CatBreed;
 import entity.player.CatColor;
 import entity.player.Player;
+import util.ColorUtil;
 import util.TextUtil;
 
 public class BattleSystem {
@@ -17,7 +19,7 @@ public class BattleSystem {
     }
 
     public boolean startBattle() {
-        TextUtil.printCentered("\n  BATTLE START! \n"); //EMOJI?
+        TextUtil.printCentered("\n--- BATTLE START! ---\n");
         player.displayStats();
         System.out.println();
         enemy.displayStats();
@@ -66,11 +68,14 @@ public class BattleSystem {
         if (choice == attacks.length + 1) {
             player.defend();
         } else {
+            // Show player ASCII art when attacking
+            showPlayerAttackArt();
+            
             int damage = player.attack(choice - 1);
             if (damage > 0) {
                 if (radiantBurstDamage > 0) {
                     damage += radiantBurstDamage;
-                    System.out.println("Radiant Burst adds " + radiantBurstDamage + " damage!");
+                    System.out.println(ColorUtil.orange(" Radiant Burst adds " + radiantBurstDamage + " damage!"));
                     radiantBurstDamage = 0;
                 }
                 enemy.takeDamage(damage);
@@ -88,12 +93,23 @@ public class BattleSystem {
         }
 
         if (player.getColor() == CatColor.BLACK && player.getTurnCount() % 3 == 0) {
-            System.out.println("\n🌑 Extra turn granted by Shadow Speed! 🌑");
+            System.out.println("\n Extra turn granted by Shadow Speed! ");
             Main.pause(1500);
             if (enemy.isAlive()) {
                 playerTurn();
             }
         }
+    }
+
+    private void showPlayerAttackArt() {
+        CatBreed breed = player.getBreed();
+    CatColor color = player.getColor();
+
+        // Use the new attack art method
+        String art = breed.ColoredAsciiAttackArt(color);
+
+        System.out.println(art);
+        Main.pause(500);
     }
 
     private void enemyTurn() {

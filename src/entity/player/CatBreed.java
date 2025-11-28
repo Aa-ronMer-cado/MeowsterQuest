@@ -18,7 +18,12 @@ public enum CatBreed {
            (           )
          ( (  )     (  ) )
         (__ (__ )___(__)__)
+        """,
         """
+        /\\  /\
+        ( ΦωΦ ) ﾉﾉ
+        /  つ つ
+    """
     ),
 
     RAGDOLL(
@@ -37,7 +42,12 @@ public enum CatBreed {
            ___/ `   ' ,""+ \\ 
           (__...'   __\\    |`.___.';
            (_,...'(_,.`__)/'..
+        """,
         """
+        /\\  /\
+        ( ΦωΦ ) ﾉﾉ
+        /  つ つ
+    """
     ),
 
     PUSKAL("Shield", "Gauntlets of Valor", 100,
@@ -51,36 +61,54 @@ public enum CatBreed {
             (,-.`._,'(       |\\`-/|
                 `-.-' \\ )-`( , o o)
                     `-    \\`_`"'-
+        """,
         """
+        /\\  /\
+        ( ΦωΦ ) ﾉﾉ
+        /  つ つ
+    """
     );
 
     private final String weapon;
     private final String armor;
     private final int maxEnergy;
     private final Attack[] attacks;
-    private final String asciiArt;
+    private final String asciiArtIdle;
+    private final String asciiArtAttack;
 
-    CatBreed(String weapon, String armor, int maxEnergy, Attack[] attacks, String asciiArt) {
+
+    CatBreed(String weapon, String armor, int maxEnergy, Attack[] attacks, String asciiArtIdle, String asciiArtAttack) {
         this.weapon = weapon;
         this.armor = armor;
         this.maxEnergy = maxEnergy;
         this.attacks = attacks;
-        this.asciiArt = asciiArt;
+        this.asciiArtIdle = asciiArtIdle;
+        this.asciiArtAttack = asciiArtAttack;
     }
 
     public String getWeapon() { return weapon; }
     public String getArmor() { return armor; }
     public int getMaxEnergy() { return maxEnergy; }
     public Attack[] getAttacks() { return attacks; }
-    public String getAsciiArt() { return asciiArt; }
+    public String getAsciiArtIdle() { return asciiArtIdle; }
+    public String getAsciiArtAttack() { return asciiArtAttack; }
 
     // ADD THIS METHOD - Get colored ASCII art based on cat color
-public String ColoredAsciiArt(CatColor color) {
-    return switch (color) {
-        case ORANGE -> ColorUtil.orange(asciiArt);
-        case BLACK -> ColorUtil.grey(asciiArt);
-        case WHITE -> asciiArt;  // No color
-        case TILAPIA -> ColorUtil.brown(asciiArt);
+    public String ColoredAsciiArt(CatColor color) {
+        return switch (color) {
+            case ORANGE -> ColorUtil.orange(asciiArtIdle);
+            case BLACK -> ColorUtil.grey(asciiArtIdle);
+            case WHITE -> asciiArtIdle;
+            case TILAPIA -> ColorUtil.brown(asciiArtIdle);
     };
-}
+
+    }
+    public String ColoredAsciiAttackArt(CatColor color) {
+        return switch (color) {
+            case ORANGE -> ColorUtil.orange(asciiArtAttack);
+            case BLACK -> ColorUtil.grey(asciiArtAttack);
+            case WHITE -> asciiArtAttack;
+            case TILAPIA -> ColorUtil.brown(asciiArtAttack);
+        };
+    }
 }

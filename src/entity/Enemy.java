@@ -12,17 +12,22 @@ public class Enemy {
     private int[] attacks;
     private int turnCount;
     private boolean canDefend;
+    private String idleAscii;   
+    private String color; 
 
-    public Enemy(String name, int level, int maxHp, int defense, int[] attacks) {
-        this.name = name;
-        this.level = level;
-        this.maxHp = maxHp;
-        this.currentHp = maxHp;
-        this.defense = defense;
-        this.attacks = attacks;
-        this.turnCount = 0;
-        this.canDefend = level >= 2;
-    }
+    public Enemy(String name, int level, int maxHp, int defense, int[] attacks, String idleAscii, String color) {
+    this.name = name;
+    this.level = level;
+    this.maxHp = maxHp;
+    this.currentHp = maxHp;
+    this.defense = defense;
+    this.attacks = attacks;
+    this.idleAscii = idleAscii;        // NEW
+    this.color = color;
+    this.turnCount = 0;
+    this.canDefend = level >= 2;
+}
+
 
     public void takeDamage(int damage) {
         int actualDamage = Math.max(0, damage - defense);
@@ -35,29 +40,38 @@ public class Enemy {
     public int performAction() {
         turnCount++;
 
+    // Special attack
         if (level == 3 && turnCount % 3 == 0) {
+            System.out.println(idleAscii); // ATTACK ART
             TextUtil.typewriterPrint(name + " unleashes a devastating special attack!");
             return 250;
         }
 
+    // Defensive stance
         if (canDefend && Main.random.nextInt(100) < 30) {
             TextUtil.typewriterPrint(name + " takes a defensive stance!");
             return 0;
         }
 
-        // Random attack
+    // Normal attack
         int attackIndex = Main.random.nextInt(attacks.length);
         int damage = attacks[attackIndex];
-        TextUtil.typewriterPrint(name + " attacks with force!");
-        return damage;
-    }
 
-    public void displayStats() { //PUT ASCII CHAR
-        System.out.println("--- " + name + " Stats ---");
+        System.out.println(idleAscii); // *** SHOW ENEMY ATTACK ART HERE ***
+        TextUtil.typewriterPrint(name + " attacks with force!");
+
+    return damage;
+}
+
+
+    public void displayStats() {
+        System.out.println("\n--- " + name + " Stats ---");
+        System.out.println(idleAscii); // SHOW ASCII EVERY TIME ENEMY APPEARS
         System.out.println("Level: " + level);
         System.out.println("HP: " + currentHp + "/" + maxHp);
         System.out.println("DEF: " + defense);
-    }
+}
+
 
     // Getters
     public String getName() { return name; }
@@ -67,4 +81,6 @@ public class Enemy {
     public int getDefense() { return defense; }
     public int[] getAttacks() { return attacks; }
     public boolean isAlive() { return currentHp > 0; }
+    public String getIdleAscii() { return idleAscii; }
+    public String getColor() { return color; }
 }
