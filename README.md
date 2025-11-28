@@ -23,9 +23,27 @@
 - Win the Battle(eme)
 
 # **Game Structure** ##
-<p align="center">
-  <img src="resources/image.png"  width = "1000" height= "250"/>
-</p>
+```
+📂 src/
+└── 📂 combat/
+    ├── ⚔️ Attack.java          
+    ├── 🛡️ BattleSystem.java
+└── 📂 core/
+     └── 👾 Game.java
+     └── 📍 Main.java
+└── 📂 entity/
+    └── 📂 player/
+        └── 👿 Enemy.java
+        └── 🔊 NPC.java
+└── 📂 system/
+     └── 🐱 Characters.java
+     └── 📋 Menu.java
+     └── 🏰 Tower.java
+└── 📂 util/
+     └── 🎨 ColorUtil.java
+     └── 💬TextUtil.java
+
+```
 
 ### Main.java
 - fjadofa
@@ -79,10 +97,10 @@
   
 | Pic | Name   |Roles    | Account |
 |-----|--------|---------|---------|
-| <div align="center"><img src="Xiamara.jpg" width="150"></div> | Bernardo, Xiamara| Singer|   | link    |
-| <div align="center"><img src="sample.jpg" width="150"></div> |Carranceja, Mikyla | Drumer | link    |
-| <div align="center"><img src="shanlee.jpg" width="150"></div> |Gupilan, Shanlee Yvonne | Dancer| link    |
-| <div align="center"><img src="sample.jpg" width="150"></div> | Mercado, Aaron Daniel |Posa  | link    |
+| <div align="center"><img src="resources/Xiamara.jpg" width="150"></div> | Bernardo, Xiamara| Singer|  link    |
+| <div align="center"><img src="resources/miky.jpg" width="150"></div> |Carranceja, Mikyla | Drumer | link    |
+| <div align="center"><img src="resources/shanlee.jpg" width="150"></div> |Gupilan, Shanlee Yvonne | Dancer| link    |
+| <div align="center"><img src="resources/aaron.jpg" width="150"></div> | Mercado, Aaron Daniel |Posa  | link    |
 
 
 

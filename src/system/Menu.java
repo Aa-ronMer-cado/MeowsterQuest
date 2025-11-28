@@ -28,6 +28,26 @@ public class Menu {
             "The Tower of Tails now imprisons our kin.",
             "A hero must rise to save them all."
         };
+        System.out.println("""
+                                                |>>>
+                                                |
+                                            _  _|_  _
+                                           |;|_|;|_|;|
+                                           \\.    .  /
+                                            \\:  .  /
+                                             ||:   |
+                                             ||:.  |
+                                             ||:  .|
+                                             ||:   |       \\,//
+                                             ||: , |            //`\\
+                                             ||:   |
+                                             ||: . |
+              __                            _||_   |
+     ____--`~    '--~~__            __ ----~    ~`---,              ___
+-~--~                   ~---__ ,--~'                  ~~----_____-~'   `~----~~
+
+   
+        """);
 
         for (String line : intro) {
             TextUtil.typewriterPrintCentered(line, 40);
@@ -43,6 +63,28 @@ public class Menu {
         TextUtil.typewriterPrintCentered("Pawshire is restored! Calm returns to the land...", 40);
         System.out.println();
         Main.pause(1500);
+        
+        TextUtil.printMiddle ("""
+         |>>>
+         |
+     _  _|_  _
+    |;|_|;|_|;|
+    \\.    .  /
+     \\:  .  /
+      ||:   |
+      ||:.  |
+      ||:  .|
+      ||:   |       \\,//
+      ||: , |            //`\\
+      ||:   |
+      ||: . |
+      ||_   |
+    ___ --'~ ____ 
+  ---             --``-    __---
+~--~                   ~---__ ,--~'  ____--`~ '--~~__   ~~----_____-~'   `~----~~
+
+
+                """, 160);
 
         TextUtil.typewriterPrintCentered("The citizens cheer for " + playerName + "!", 35);
         Main.pause(1000);
@@ -53,6 +95,24 @@ public class Menu {
 
         TextUtil.typewriterPrint("[Prisoner]: \"Pawshire will never forget your courage and sacrifice.\"", 40); 
         Main.pause(1500);
+
+        TextUtil.printMiddle("""
+     |@@@@|     |####|
+     |@@@@|     |####|
+     |@@@@|     |####|
+    \\@@@@|     |####//
+     \\@@@|     |###//
+      `@@|_____|##'
+            (O)
+         .-'''''-.
+       .'  * * *   ` .
+     :  *       *      :
+    :    T O W N ' S'   :
+    :  ~ s A V I O R ~  :
+     :   *        *    :
+       .   * * *    . '
+         `-....,..-'
+                """,160);
 
         System.out.println();
         TextUtil.typewriterPrintCentered(" Prisoners reunite! ", 40);
@@ -74,6 +134,28 @@ public class Menu {
         TextUtil.typewriterPrintCentered("May your journey always be filled with", 40,157);
         TextUtil.typewriterPrintCentered("bravery, wonder, and kindness.", 40, 157);
 
+        TextUtil.printMiddle("""
+            
+         |>>>
+         |
+     _  _|_  _
+    |;|_|;|_|;|
+    \\.    .  /
+     \\:  .  /
+      ||:   |
+      ||:.  |
+      ||:  .|
+      ||:   |       \\,//
+      ||: , |            //`\\
+      ||:   |
+      ||: . |
+      ||_   |
+    ___ --'~ ____ 
+  ---             --``-    __---
+~--~                   ~---__ ,--~'  ____--`~ '--~~__   ~~----_____-~'   `~----~~
+
+
+                """,160);
         TextUtil.typewriterPrint("\n=== CREDITS ===", 100); //FIX CREDITS
         TextUtil.typewriterPrint("MEO\\V3X", 100);
         TextUtil.typewriterPrint("Programming: Java OOP PROGRAMMING", 100);
