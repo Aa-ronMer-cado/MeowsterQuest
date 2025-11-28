@@ -65,7 +65,7 @@ public enum CatBreed {
         """,
         """
          /\\   /\\
-         ( 0ω0 ) ﾉﾉ *WHAMM!*
+         ( 0ω0 ) ﾉﾉ *WHAMM!
          /  > >
     """
     );
