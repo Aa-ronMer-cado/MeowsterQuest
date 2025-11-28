@@ -38,20 +38,4 @@ public static int getIntInput(int min, int max) {
             Thread.currentThread().interrupt();
         }
     }
-
-    public static void typewriterPrint(String text, int delayMs) {
-        for (char c : text.toCharArray()) {
-            System.out.print(c);
-            try {
-                Thread.sleep(delayMs);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
-        }
-        System.out.println();
-    }
-
-    public static void typewriterPrint(String text) {
-        typewriterPrint(text, 50);
-    }
 }
