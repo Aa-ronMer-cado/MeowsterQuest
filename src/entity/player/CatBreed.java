@@ -21,10 +21,10 @@ public enum CatBreed {
         """,
         """
         /\\  /\
-        ( ΦωΦ ) ﾉﾉ
-        /  つ つ
+        ( ΦωΦ ) //
+        /  /\\/\\ 
     """
-    ),
+),
 
     RAGDOLL(
         "Chakrams",
@@ -45,8 +45,8 @@ public enum CatBreed {
         """,
         """
         /\\  /\
-        ( ΦωΦ ) ﾉﾉ
-        /  つ つ
+        ( ΦωΦ ) //
+        /  /\\/\\ 
     """
     ),
 
@@ -64,8 +64,8 @@ public enum CatBreed {
         """,
         """
         /\\  /\
-        ( ΦωΦ ) ﾉﾉ
-        /  つ つ
+        ( ΦωΦ ) //
+        /  /\\/\\ 
     """
     );
 
@@ -93,7 +93,7 @@ public enum CatBreed {
     public String getAsciiArtIdle() { return asciiArtIdle; }
     public String getAsciiArtAttack() { return asciiArtAttack; }
 
-    // ADD THIS METHOD - Get colored ASCII art based on cat color
+    //Colored ASCII art based on cat color
     public String ColoredAsciiArt(CatColor color) {
         return switch (color) {
             case ORANGE -> ColorUtil.orange(asciiArtIdle);

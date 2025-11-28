@@ -2,7 +2,7 @@ package util;
 
 public class TextUtil {
 
-    public static final int DEFAULT_WIDTH = 157;
+    public static final int DEFAULT_WIDTH = 160;
 
     public static void printCentered(String text) {
         printCentered(text, DEFAULT_WIDTH);

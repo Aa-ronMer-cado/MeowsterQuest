@@ -34,7 +34,7 @@ public enum CatColor {
         return switch (this) {
             case ORANGE -> ColorUtil.orange(ability);
             case BLACK -> ColorUtil.grey(ability);
-            case WHITE -> ability;  // FIXED: was this.name(), now ability
+            case WHITE -> ability; 
             case TILAPIA -> ColorUtil.brown(ability);
         };
     }

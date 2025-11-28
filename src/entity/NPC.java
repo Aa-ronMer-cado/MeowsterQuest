@@ -1,6 +1,6 @@
 package entity;
 
-import core.Main;
+import util.TextUtil;
 
 //ROLE?
 public class NPC {
@@ -14,7 +14,7 @@ public class NPC {
 
     public void speak(String dialogue) {
         System.out.print("\n[" + name + "]: ");
-        Main.typewriterPrint(dialogue, 35);
+        TextUtil.typewriterPrint(dialogue, 35);
     }
 
     public String getName() { return name; }

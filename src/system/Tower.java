@@ -31,7 +31,7 @@ public class Tower {
             System.out.println("Returning to checkpoint...");
             Main.pause(5000);
 
-            // Retry the level - recreate enemy with same stats
+            // Retry the level
             return battleLevel(player, level, title, dialogue,
                                 new Enemy(enemy.getName(), enemy.getLevel(), 
                                         enemy.getMaxHp(), enemy.getDefense(), 
@@ -47,23 +47,22 @@ public class Tower {
     }
 
     public boolean playTowerLevels(Player player) {
-        // Level 1: Roach
         String roachArt = """
-,--.     .--.
-    /   \\. ./    \
-   /  /\\ / " \\ /\\  \
-  / _/  {~~v~~}  \\_ \
- /     {   |   }     \
-;   /\\{    |    }/\\   \
-| _/  {    |    }  \\_  :
-|     {    |    }      |
-|    /{    |    }\\     |
-|   / {    |    } \\    |
-|  /  {    |    }  \\   |
-|  \\  \\    |    /  /   |
-|   \\  \\   |   /  /    |
-\\    \\  \\  |  /  /     /
- \\   /   ~~~~~   \\    /
+     ,--.     .--.
+    /   \\. ./    \\
+   /  /\\\\ / " \\\\ /\\  \\
+  / _/  {~~v~~}  \\_ \\
+ /     {   |   }     \\
+;   /\\{    |    }/\\   ;
+| _/  {    |    }  \\_ |
+|     {    |    }     |
+|    /{    |    }\\    |
+|   / {    |    } \\   |
+|  /  {    |    }  \\  |
+|  \\  \\    |    /  /  |
+|   \\  \\   |   /  /   |
+ \\    \\  \\ |  /  /    /
+  \\   /   ~~~~~   \\   /
 """;
 
         if (!battleLevel(player, 1, "Roach's Lair ",

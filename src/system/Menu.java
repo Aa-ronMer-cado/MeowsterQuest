@@ -10,7 +10,7 @@ public class Menu {
         TextUtil.printTitle("MEOWSTERQUEST: THE RISE OF PAWSHIRE");
 
         System.out.println();
-        System.out.println("MAIN MENU"); //EMOJI
+        System.out.println("MAIN MENU"); 
         System.out.println("1. Play");
         System.out.println("2. Exit");
         System.out.print("\nChoose an option: ");
@@ -48,10 +48,10 @@ public class Menu {
         Main.pause(1000);
 
         System.out.println();
-        Main.typewriterPrint("[Prisoner]: \"Because of you, our kin are free at last!\"", 40); //PUT DELAY
+        TextUtil.typewriterPrint("[Prisoner]: \"Because of you, our kin are free at last!\"", 40); 
         Main.pause(1000);
 
-        Main.typewriterPrint("[Prisoner]: \"Pawshire will never forget your courage and sacrifice.\"", 40); //PUT DELAY
+        TextUtil.typewriterPrint("[Prisoner]: \"Pawshire will never forget your courage and sacrifice.\"", 40); 
         Main.pause(1500);
 
         System.out.println();
@@ -60,7 +60,7 @@ public class Menu {
         Main.pause(2000);
     }
 
-    public void showEndScreen() { //FIX TEXTUTIL PRINT
+    public void showEndScreen() { 
         Main.clearScreen();
         TextUtil.printMiddle("----- GAME COMPLETE ------", 157);
 
@@ -75,7 +75,7 @@ public class Menu {
         TextUtil.typewriterPrintCentered("bravery, wonder, and kindness.", 40, 157);
 
         TextUtil.typewriterPrint("\n=== CREDITS ===", 100); //FIX CREDITS
-        TextUtil.typewriterPrint("Game Design: GROUP 1", 100);
+        TextUtil.typewriterPrint("MEO\\V3X", 100);
         TextUtil.typewriterPrint("Programming: Java OOP PROGRAMMING", 100);
         TextUtil.typewriterPrint("Thanks for playing!", 100);
         TextUtil.typewriterPrint("\nPress Enter to return to main menu...", 100);
