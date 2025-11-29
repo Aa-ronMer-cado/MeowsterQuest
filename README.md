@@ -86,10 +86,16 @@ java -cp src core.Main
 ### `=== Choose Your Cat Breed (Class) ===`
 
 <p float="left">
-  <img src="resources/Persian.png" width="200" height="150" style="margin-right: 10px;"/>
-  <img src="resources/Ragdoll.png" width="200" height="150" style="margin-right: 10px;"/>
-  <img src="resources/Puskal.png" width="200" height="150" style="margin-right: 10px;"/>
+  <img src="resources/Persian.png" width="200" height="200" style="margin-right: 10px;"/>
+  <img src="resources/Ragdoll.png" width="200" height="200" style="margin-right: 10px;"/>
+  <img src="resources/Puskal.png" width="200" height="200" style="margin-right: 10px;"/>
+
+### `=== Choose Your Cat Color (Elemental Trait) ===`
 </p>
+<p align="center">
+  <img src="resources/CatColorSample.png" alt="naur it should hav meowmeow" width="400" height="250">
+</p>
+
 
 3. Upgrade Level. Gain rewards like HP upgrades, weapon/armor upgrades, and restored HP.
 4.
