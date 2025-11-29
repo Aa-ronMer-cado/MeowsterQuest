@@ -96,31 +96,32 @@ java -cp src core.Main
   <img src="resources/CatColorSample.png" alt="naur it should hav meowmeow" width="400" height="250">
 </p>
 
+3. **Battle Actions.** Player can Attack, Defend, Trigger Special Actions, Regenerate Energy, and Level Up.
 
-3. Upgrade Level. Gain rewards like HP upgrades, weapon/armor upgrades, and restored HP.
-4.
-5.
-6.
+4. **Tower Progression.** Fights through a three(3) level tower, Rescue prisoners, Retry battles if defeated, and Interacts with NPC.
+
+5. **Immersion.** Enjoy the ASCII art graphics and the charactersirics of each Heroes through the **Colors**, and Experience **Typewriter-style dialouge.**
+
 
 # **Object-Oriented Principles**
-#### Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute iruredolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollitanim id est laborum.
 
 ## Abstraction
-#### Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute iruredolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollitanim id est laborum.
+#### Abstraction is applied through the use of helper classes that hide low-level `details.TextUtil.java` handles spacing, delays, centering, and dynamic printing, while `ColorUtil.java` manages ANSI color formatting. These classes allow the game logic to remain clean and easy to read, since higher-level methods like `printCentered()` or `orange()` hide the underlying implementation. The `NPC` class also provides abstraction through its `speak()` method, which manages the formatting and animation of dialogue internally.
 
 ## Encapsulation
-#### Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute iruredolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollitanim id est laborum.
+#### Encapsulation is used throughout the project by keeping fields private and exposing only controlled methods. Examples include the `NPC` class where the name and role fields are private and accessed only through getter methods. This prevents unwanted modification of game-critical data. Utility classes such as `ColorUtil.java` and `TextUtil.java` also encapsulate complex operations like applying ANSI colors, centering text, and creating typewriter effects. The rest of the project does not need to know the internal logic and can simply call the provided methods.
 
 ## Polymorphism
-#### Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute iruredolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollitanim id est laborum.
+#### Polymorphism is present in interactions with entities. `Player` and `Enemy` objects share the same base type, allowing the program to call common methods while still reacting differently depending on which object is being used. Attack objects are another form of polymorphism. They follow the same structure but have different stats and effects, enabling the combat system to work with them in a flexible and dynamic way.
 
 ## Inheritance
-#### Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute iruredolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollitanim id est laborum.
+#### Inheritance is used in the overall structure of the combat and entity system. Classes such as Player and Enemy extend a common base entity class and share attributes such as health points, attack lists, and names. This allows shared behavior while still supporting unique features for different entity types. This setup also makes the project ready for expansion, since new types of enemies or special player subclasses can easily inherit from the base class.
 
 # Game Play (Example Output)
 ### snippet
 ### snippet
 ### snippet
+
 
 # Development team (MEO\V3X)
 
