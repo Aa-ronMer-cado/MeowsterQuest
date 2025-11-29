@@ -20,6 +20,11 @@ public class Menu {
 
     public void displayIntroduction() {
         Main.clearScreen();
+        TextUtil.printCentered("""
+                                █▀▀ ▄▀█ █▀▄▀█ █▀▀   █▀ ▀█▀ ▄▀█ █▀█ ▀█▀
+                                                                 █▄█ █▀█ █░▀░█ ██▄   ▄█ ░█░ █▀█ █▀▄ ░█░
+
+        """, 227);
         TextUtil.printTitle("INTRODUCTION");
 
         String[] intro = {
@@ -28,10 +33,18 @@ public class Menu {
             "The Tower of Tails now imprisons our kin.",
             "A hero must rise to save them all."
         };
-        System.out.println("""
+
+    
+        for (String line : intro) {
+            TextUtil.typewriterPrintCentered(line, 40);
+            Main.pause(10);
+        }
+        System.out.println();
+
+        TextUtil.printCentered("""
                                                 |>>>
                                                 |
-                                            _  _|_  _
+                                            _  _|_  _        
                                            |;|_|;|_|;|
                                            \\.    .  /
                                             \\:  .  /
@@ -45,16 +58,9 @@ public class Menu {
               __                            _||_   |
      ____--`~    '--~~__            __ ----~    ~`---,              ___
 -~--~                   ~---__ ,--~'                  ~~----_____-~'   `~----~~
-
-   
-        """);
-
-        for (String line : intro) {
-            TextUtil.typewriterPrintCentered(line, 40);
-            Main.pause(10);
-        }
-        System.out.println();
+            """,100100);
     }
+
 
     public void showVictorySequence(String playerName) {
         Main.clearScreen();
@@ -134,28 +140,6 @@ public class Menu {
         TextUtil.typewriterPrintCentered("May your journey always be filled with", 40,157);
         TextUtil.typewriterPrintCentered("bravery, wonder, and kindness.", 40, 157);
 
-        TextUtil.printMiddle("""
-            
-         |>>>
-         |
-     _  _|_  _
-    |;|_|;|_|;|
-    \\.    .  /
-     \\:  .  /
-      ||:   |
-      ||:.  |
-      ||:  .|
-      ||:   |       \\,//
-      ||: , |            //`\\
-      ||:   |
-      ||: . |
-      ||_   |
-    ___ --'~ ____ 
-  ---             --``-    __---
-~--~                   ~---__ ,--~'  ____--`~ '--~~__   ~~----_____-~'   `~----~~
-
-
-                """,160);
         TextUtil.typewriterPrint("\n=== CREDITS ===", 100); //FIX CREDITS
         TextUtil.typewriterPrint("MEO\\V3X", 100);
         TextUtil.typewriterPrint("Programming: Java OOP PROGRAMMING", 100);
