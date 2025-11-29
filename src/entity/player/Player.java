@@ -4,9 +4,8 @@ import combat.Attack;
 import core.Main;
 import util.ColorUtil;
 import util.TextUtil;
-import entity.Entity;
 
-public class Player extends Entity {
+public class Player {
     private String name;
     private CatBreed breed;
     private CatColor color;
@@ -22,38 +21,44 @@ public class Player extends Entity {
     private boolean reflectActive;
 
     public Player(String name, CatBreed breed, CatColor color) {
-        super(name, 1500, 30);
+        this.name = name;
         this.breed = breed;
         this.color = color;
+        this.maxHp = 1500;
+        this.currentHp = maxHp;
+        this.defense = 30;
         this.maxEnergy = breed.getMaxEnergy();
         this.energy = maxEnergy;
-}
-
-
-    @Override
-    public void displayStats() {
-        System.out.println("\n--- " + name + " Stats ---");
-    System.out.println(breed.ColoredAsciiArt(color));
-        System.out.println("Breed: " + breed.name());
-        System.out.println("Color: " + color.ColoredName());
-        System.out.println("HP: " + currentHp + "/" + maxHp);
-        System.out.println("DEF: " + getTotalDefense());
-}
-
-
-    public void showPlayerAttackArt() {
-    String attackArt = breed.getAsciiArtAttack();
-
-    switch (color) {
-        case ORANGE -> attackArt = ColorUtil.orange(attackArt);
-        case BLACK -> attackArt = ColorUtil.grey(attackArt);
-        case WHITE -> { /* no color */ }
-        case TILAPIA -> attackArt = ColorUtil.brown(attackArt);
+        this.weaponLevel = 1;
+        this.armorLevel = 1;
+        this.turnCount = 0;
+        this.defendActive = false;
+        this.reflectActive = false;
     }
 
-    System.out.println(attackArt);
-    Main.pause(500);
-}
+    public void displayStats() {
+        System.out.println("\n--- " + name + " Stats ---");
+        System.out.println(breed.ColoredAsciiArt(color));
+        System.out.println("Breed: " + breed.name() + " (" + breed.getWeapon() + ")");
+        System.out.println("Color: " + color.ColoredName() + " (" + color.ColoredAbility() + ")");
+        System.out.println("HP: " + currentHp + "/" + maxHp);
+        System.out.println("DEF: " + getTotalDefense());
+        System.out.println("Energy: " + energy + "/" + maxEnergy);
+        System.out.println("Weapon Level: " + weaponLevel);
+        System.out.println("Armor Level: " + armorLevel);
+    }
+
+    public void showPlayerAttackArt() {
+        String attackArt = breed.getAsciiArtAttack();
+        switch (color) {
+            case ORANGE -> attackArt = ColorUtil.orange(attackArt);
+            case BLACK -> attackArt = ColorUtil.grey(attackArt);
+            case WHITE -> { /* no color */ }
+            case TILAPIA -> attackArt = ColorUtil.brown(attackArt);
+        }
+        System.out.println(attackArt);
+        Main.pause(500);
+    }
 
     public Attack[] getAttacks() {
         return breed.getAttacks();
@@ -62,22 +67,21 @@ public class Player extends Entity {
     public void takeDamage(int damage) {
         int totalDefense = getTotalDefense();
         int actualDamage = Math.max(0, damage - totalDefense);
-
+        
         if (defendActive) {
             actualDamage /= 2;
             TextUtil.typewriterPrint(name + "'s defense halves the damage!");
             defendActive = false;
         }
-
+        
         if (reflectActive) {
             TextUtil.typewriterPrint(name + "'s Reflect Shield deflects all damage!");
             actualDamage = 0;
             reflectActive = false;
         }
-
+        
         currentHp -= actualDamage;
         if (currentHp < 0) currentHp = 0;
-
         TextUtil.typewriterPrint(name + " takes " + actualDamage + " damage! HP: " + currentHp + "/" + maxHp);
     }
 
@@ -86,19 +90,17 @@ public class Player extends Entity {
         if (attackIndex < 0 || attackIndex >= attacks.length) {
             return 0;
         }
-
+        
         Attack attack = attacks[attackIndex];
-
         if (energy < attack.getEnergyCost()) {
-        TextUtil.typewriterPrint("Not enough energy!");
+            TextUtil.typewriterPrint("Not enough energy!");
             return 0;
         }
-
+        
         energy -= attack.getEnergyCost();
-
         double weaponMultiplier = 1.0 + (weaponLevel * 0.5);
         int damage = (int) (attack.getDamage() * weaponMultiplier);
-
+        
         TextUtil.typewriterPrint(name + " uses " + attack.getName() + "!");
         return damage;
     }
@@ -114,7 +116,6 @@ public class Player extends Entity {
 
     public void incrementTurn() {
         turnCount++;
-
         if (turnCount % 3 == 0) {
             triggerSpecialAbility();
         }
@@ -122,7 +123,6 @@ public class Player extends Entity {
 
     private void triggerSpecialAbility() {
         TextUtil.typewriterPrint("\n✨ " + color.getAbility() + " activates! ✨");
-
         switch (color) {
             case ORANGE:
                 TextUtil.typewriterPrint("Radiant energy explodes! (300 damage will be dealt)");
@@ -158,12 +158,35 @@ public class Player extends Entity {
     }
 
     // Getters
-    public String getName() { return name; }
-    public int getCurrentHp() { return currentHp; }
-    public int getMaxHp() { return maxHp; }
-    public int getEnergy() { return energy; }
-    public int getTurnCount() { return turnCount; }
-    public CatColor getColor() { return color; }
-    public CatBreed getBreed() { return breed; }
-    public boolean isAlive() { return currentHp > 0; }
+    public String getName() {
+        return name;
+    }
+
+    public int getCurrentHp() {
+        return currentHp;
+    }
+
+    public int getMaxHp() {
+        return maxHp;
+    }
+
+    public int getEnergy() {
+        return energy;
+    }
+
+    public int getTurnCount() {
+        return turnCount;
+    }
+
+    public CatColor getColor() {
+        return color;
+    }
+
+    public CatBreed getBreed() {
+        return breed;
+    }
+
+    public boolean isAlive() {
+        return currentHp > 0;
+    }
 }
