@@ -20,6 +20,11 @@ public class Menu {
 
     public void displayIntroduction() {
         Main.clearScreen();
+        TextUtil.printCentered("""
+                                █▀▀ ▄▀█ █▀▄▀█ █▀▀   █▀ ▀█▀ ▄▀█ █▀█ ▀█▀
+                                                                 █▄█ █▀█ █░▀░█ ██▄   ▄█ ░█░ █▀█ █▀▄ ░█░
+
+        """, 227);
         TextUtil.printTitle("INTRODUCTION");
 
         String[] intro = {
@@ -29,12 +34,33 @@ public class Menu {
             "A hero must rise to save them all."
         };
 
+    
         for (String line : intro) {
             TextUtil.typewriterPrintCentered(line, 40);
             Main.pause(10);
         }
         System.out.println();
+
+        TextUtil.printCentered("""
+                                                |>>>
+                                                |
+                                            _  _|_  _        
+                                           |;|_|;|_|;|
+                                           \\.    .  /
+                                            \\:  .  /
+                                             ||:   |
+                                             ||:.  |
+                                             ||:  .|
+                                             ||:   |       \\,//
+                                             ||: , |            //`\\
+                                             ||:   |
+                                             ||: . |
+              __                            _||_   |
+     ____--`~    '--~~__            __ ----~    ~`---,              ___
+-~--~                   ~---__ ,--~'                  ~~----_____-~'   `~----~~
+            """,100100);
     }
+
 
     public void showVictorySequence(String playerName) {
         Main.clearScreen();
@@ -43,6 +69,28 @@ public class Menu {
         TextUtil.typewriterPrintCentered("Pawshire is restored! Calm returns to the land...", 40);
         System.out.println();
         Main.pause(1500);
+        
+        TextUtil.printMiddle ("""
+         |>>>
+         |
+     _  _|_  _
+    |;|_|;|_|;|
+    \\.    .  /
+     \\:  .  /
+      ||:   |
+      ||:.  |
+      ||:  .|
+      ||:   |       \\,//
+      ||: , |            //`\\
+      ||:   |
+      ||: . |
+      ||_   |
+    ___ --'~ ____ 
+  ---             --``-    __---
+~--~                   ~---__ ,--~'  ____--`~ '--~~__   ~~----_____-~'   `~----~~
+
+
+                """, 160);
 
         TextUtil.typewriterPrintCentered("The citizens cheer for " + playerName + "!", 35);
         Main.pause(1000);
@@ -53,6 +101,24 @@ public class Menu {
 
         TextUtil.typewriterPrint("[Prisoner]: \"Pawshire will never forget your courage and sacrifice.\"", 40); 
         Main.pause(1500);
+
+        TextUtil.printMiddle("""
+     |@@@@|     |####|
+     |@@@@|     |####|
+     |@@@@|     |####|
+    \\@@@@|     |####//
+     \\@@@|     |###//
+      `@@|_____|##'
+            (O)
+         .-'''''-.
+       .'  * * *   ` .
+     :  *       *      :
+    :    T O W N ' S'   :
+    :  ~ s A V I O R ~  :
+     :   *        *    :
+       .   * * *    . '
+         `-....,..-'
+                """,160);
 
         System.out.println();
         TextUtil.typewriterPrintCentered(" Prisoners reunite! ", 40);
