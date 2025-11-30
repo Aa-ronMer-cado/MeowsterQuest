@@ -11,7 +11,7 @@ public enum CatBreed {
             new Attack("Tidal Slam", 220, 80)
         },
         """
-             /\\_____ /\\
+            /\\_____ /\\
             /  o   o  \\
            ( ==  ^  == )
             )         (

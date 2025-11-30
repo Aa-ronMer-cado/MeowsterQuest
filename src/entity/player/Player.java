@@ -1,7 +1,6 @@
 package entity.player;
 
 import combat.Attack;
-import core.Main;
 import util.ColorUtil;
 import util.TextUtil;
 
@@ -59,7 +58,7 @@ public class Player {
     }
 
     System.out.println(attackArt);
-    Main.pause(500);
+    TextUtil.pause(500);
 }
 
     public Attack[] getAttacks() {

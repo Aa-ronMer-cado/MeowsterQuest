@@ -46,7 +46,7 @@ public class Characters {
         Player newPlayer = new Player(name, breed, color);
 
         //FIX delay and print center
-        Main.clearScreen();
+        TextUtil.clearScreen();
         System.out.println("\n" + "=".repeat(157));
         TextUtil.typewriterPrintCentered("The " + color.ColoredName() + " " + breed.name() +  " named " + name + 
         " is ready for battle! It leaps into action, claws flashing and eyes burning with courage.", 30);
@@ -54,21 +54,21 @@ public class Characters {
         System.out.println("=".repeat(157));
         newPlayer.displayStats();
 
-        Main.pause(2000);
+        TextUtil.pause(2000);
         return newPlayer;
     }
 
     public void showNPCEncounter(String playerName) {
-        Main.clearScreen();
+        TextUtil.clearScreen();
         TextUtil.printTitle("PAWSHIRE VILLAGE");
 
         NPC maximo = new NPC("Maximo", "Wise old cat mentor");
         maximo.speak("Ah, " + playerName + "... you've returned, the Asonians took our kin to the Tower of Tails.");
-        Main.pause(1500);
+        TextUtil.pause(1500);
 
         NPC wankie = new NPC("Wankie", "Maximo's curious son");
         wankie.speak("They took Rowma, Necko, and Cleo! Please, help us!");
-        Main.pause(1500);
+        TextUtil.pause(1500);
 
         System.out.println("\n=== Your Response ===");
         System.out.println("1. Absolutely! Asonia won't stop me!");
@@ -77,35 +77,10 @@ public class Characters {
         System.out.print("\nChoose (1-3): ");
         Main.getIntInput(1, 3);
 
-        //FIX TextUtil
         System.out.println("\n" + "=".repeat(157));
         TextUtil.typewriterPrintCentered("With courage burning bright, " + playerName + " journeys to Asonia", 35);
         TextUtil.typewriterPrintCentered("to reclaim Pawshire's freedom.", 35);
         System.out.println("=".repeat(157));
-        Main.pause(2000);
-
-         TextUtil.printMiddle("""
-            
-                                  |>>>
-                                  |
-                    |>>>      _  _|_  _         |>>>
-                    |        |;| |;| |;|        |
-                _  _|_  _    \\.    .  /    _  _|_  _
-               |;|_|;|_|;|    \\:. ,  /    |;|_|;|_|;|
-               \\..      /    ||;   . |    \\.    .  /
-                \\.  ,  /     ||:  .  |     \\:  .  /
-                 ||:   |_   _ ||_ . _ | _   _||:   |
-                 ||:  .|||_|;|_|;|_|;|_|;|_|;||:.  |
-                 ||:   ||.    .     .      . ||:  .|
-                 ||: . || .     . .   .  ,   ||:   |       \\,/
-                 ||:   ||:  ,  _______   .   ||: , |            /`\
-                 ||:   || .   /+++++++\\   . ||:   |
-                 ||:   ||.    |+++++++| .    ||: . |
-              __ ||: . ||: ,  |+++++++|.  . _||_   |
-     ____--`~    '--~~__|.    |+++++__|----~    ~`---,              ___
--~--~                   ~---__|,--~'                  ~~----_____-~'   `~----~~
-
-
-                """,160);
+        TextUtil.pause(2000);
     }
 }

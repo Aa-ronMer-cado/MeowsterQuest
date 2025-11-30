@@ -34,9 +34,7 @@
 └── 📂 entity/
     └── 📂 player/
         └── 👿 Enemy.java
-        └── 👿 Enemy.java
-    └── 👿 Enemy.java
-    └── 🔊 NPC.java
+        └── 🔊 NPC.java
 └── 📂 system/
      └── 🐱 Characters.java
      └── 📋 Menu.java

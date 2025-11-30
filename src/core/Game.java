@@ -4,18 +4,13 @@ import entity.player.Player;
 import system.Characters;
 import system.Menu;
 import system.Tower;
+import util.TextUtil;
 
 public class Game {
     private Player player;
-    private Menu menuManager;
-    private Characters characterManager;
-    private Tower towerManager;
-
-    public Game() {
-        this.menuManager = new Menu();
-        this.characterManager = new Characters();
-        this.towerManager = new Tower();
-    }
+    private final Menu menuManager = new Menu();
+    private final Characters characterManager = new Characters();
+    private final Tower towerManager = new Tower();
 
     public void start() {
         mainMenu();
@@ -25,8 +20,7 @@ public class Game {
         int choice = menuManager.showMainMenu();
 
         if (choice == 1) {
-            //SFX SOUND MEOWING
-            Main.pause(1000);
+            TextUtil.pause(1000);
             startGame();
         } else {
             System.out.println("\nThank you for visiting Pawshire!");
@@ -34,15 +28,15 @@ public class Game {
     }
 
     private void startGame() {
-        Main.clearScreen();
+        TextUtil.clearScreen();
         menuManager.displayIntroduction();
         player = characterManager.createCharacter();
+
         characterManager.showNPCEncounter(player.getName());
+
         boolean victory = towerManager.playTowerLevels(player);
 
-        if (victory) {
-            victorySequence();
-        }
+        if (victory) victorySequence();
     }
 
     private void victorySequence() {
