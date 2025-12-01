@@ -136,16 +136,16 @@ java -cp src core.Main
 
 # **⋆🐾° ┊ Object-Oriented Principles**
 
-## Abstraction
+## 🌌 Abstraction
 #### Abstraction is applied through the use of helper classes that hide low-level `details.TextUtil.java` handles spacing, delays, centering, and dynamic printing, while `ColorUtil.java` manages ANSI color formatting. These classes allow the game logic to remain clean and easy to read, since higher-level methods like `printCentered()` or `orange()` hide the underlying implementation. The `NPC` class also provides abstraction through its `speak()` method, which manages the formatting and animation of dialogue internally.
 
-## Encapsulation
+## 💊 Encapsulation
 #### Encapsulation is used throughout the project by keeping fields private and exposing only controlled methods. Examples include the `NPC` class where the name and role fields are private and accessed only through getter methods. This prevents unwanted modification of game-critical data. Utility classes such as `ColorUtil.java` and `TextUtil.java` also encapsulate complex operations like applying ANSI colors, centering text, and creating typewriter effects. The rest of the project does not need to know the internal logic and can simply call the provided methods.
 
-## Polymorphism
+## 🦋 Polymorphism
 #### Polymorphism is present in interactions with entities. `Player` and `Enemy` objects share the same base type, allowing the program to call common methods while still reacting differently depending on which object is being used. Attack objects are another form of polymorphism. They follow the same structure but have different stats and effects, enabling the combat system to work with them in a flexible and dynamic way.
 
-## Inheritance
+## 🧬 Inheritance
 #### Inheritance is used in the overall structure of the combat and entity system. Classes such as Player and Enemy extend a common base entity class and share attributes such as health points, attack lists, and names. This allows shared behavior while still supporting unique features for different entity types. This setup also makes the project ready for expansion, since new types of enemies or special player subclasses can easily inherit from the base class.
 
 # **⋆🐾° ┊Game Play (Example Output)**
@@ -176,17 +176,45 @@ java -cp src core.Main
  
 # **⋆🐾° ┊ Acknowledgement**
 
+### Expressing our sincerest gratitude to:
+
+- **Ms. Fatima Marie M. Agdon** for her guidance, support, and encouragement throughout our OOP Java final project. It helped us improve our skills and better understand programming. We are truly thankful for her lessons, which made it possible for us to complete this project successfully.
+
+- **Classmates (CS-2102)** for collaborating with us and helping share ideas that strengthened our project.
+
+- **Friends** for offering encouragement and insights that guided us throughout the process.
+
+- **Family** for providing unwavering support and motivation that kept us focused and determined.
+
 # **⋆🐾° ┊ References**
 
-# **⋆🐾° ┊ Future Enhancemnts**
+<div align= "center"><img src= "resources/CatFam.png" width = "400" height="300"></div>
+<h3 align = "center">
+  🢁 Mikyla's cat References 🢁
 
+    
+
+# **⋆🐾° ┊ Future Enhancemnts**
+### Future enhancments in the future:
+
+- **🎭 Expanded Story** - Add deeper lore, more dialogue choices, and multiple endings.
+
+- **⚔️ Combat Upgrades** - New enemies, status effects, combo attacks, and difficulty modes.
+
+- **💾 Save System** - Add save/load features to continue progress anytime.
+
+- **🎨 GUI Version** - Build a visual interface using JavaFX or HTML/CSS/JS. Add music, effects, and visual feedback during battles, show tower levels and progress visually.
+
+- **📦 Inventory System** - Add items, potions, and gear with drag-and-drop support.
+
+- **🔐 Login System** - Add user authentication to track achievements privately.
 
 <h1 align="center">
   <b>THANK YOU FOR VISITING</b>
 </h1>
 
 <h3 align="center">
-  something something qoute(ending qoute)
+  <i>Heroes aren’t born, they rise through the fight, In Pawshire’s tale, your legend shines ✨bright✨.</i>
 </h3>
 
 <p align="center">
