@@ -1,8 +1,10 @@
 package entity;
 
+import util.MusicUtil;
 import util.TextUtil;
 
 public class NPC {
+    public MusicUtil music = new MusicUtil();
     private String name;
     private String role;
 
@@ -13,7 +15,7 @@ public class NPC {
 
     public void speak(String dialogue) {
         System.out.print("\n[" + name + "]: ");
-        TextUtil.typewriterPrint(dialogue, 35);
+        TextUtil.typewriterPrint(dialogue, music);
     }
 
     public String getName() { return name; }

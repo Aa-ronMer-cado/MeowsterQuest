@@ -5,9 +5,11 @@ import entity.Enemy;
 import entity.player.CatBreed;
 import entity.player.Player;
 import util.ColorUtil;
+import util.MusicUtil;
 import util.TextUtil;
 
 public class BattleSystem {
+    public MusicUtil music = new MusicUtil();
     private final Player player;
     private final Enemy enemy;
     private int radiantBurstBonus = 0;
@@ -40,7 +42,7 @@ public class BattleSystem {
 
     private void playerTurn() {
         TextUtil.clearScreen();
-        TextUtil.printTitle("YOUR TURN");
+        TextUtil.typewriterPrint("---YOUR TURN---", music);
 
         player.displayStats();
         System.out.println();
@@ -93,7 +95,7 @@ public class BattleSystem {
 
     private void enemyTurn() {
         TextUtil.clearScreen();
-        TextUtil.printTitle("ENEMY TURN");
+        TextUtil.typewriterPrint("---ENEMY TURN---", music);
 
         int dmg = enemy.performAction();
         if (dmg > 0) player.takeDamage(dmg);

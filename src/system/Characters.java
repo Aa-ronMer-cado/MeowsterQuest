@@ -5,11 +5,14 @@ import entity.NPC;
 import entity.player.CatBreed;
 import entity.player.CatColor;
 import entity.player.Player;
+import util.MusicUtil;
 import util.TextUtil;
 
 public class Characters {
+    public MusicUtil music = new MusicUtil();
+    
     public Player createCharacter() {
-        TextUtil.printTitle("CHARACTER CREATION");
+        TextUtil.typewriterPrintCenteredWithBorder("CHARACTER CREATION", music);
 
         System.out.print("Enter your cat's name: ");
         String name = Main.scanner.nextLine().trim();
@@ -45,12 +48,11 @@ public class Characters {
 
         Player newPlayer = new Player(name, breed, color);
 
-        //FIX delay and print center
         TextUtil.clearScreen();
         System.out.println("\n" + "=".repeat(157));
-        TextUtil.typewriterPrintCentered("The " + color.ColoredName() + " " + breed.name() +  " named " + name + 
-        " is ready for battle! It leaps into action, claws flashing and eyes burning with courage.", 30);
-        TextUtil.typewriterPrintCentered("The fate of Pawshire rests on its paws!", 30);
+        TextUtil.typewriterPrintCentered("The " + color.ColoredName() + " " + breed.name() + 
+            " named " + name + " is ready for battle! It leaps into action, claws flashing and eyes burning with courage.",50, 160, music);
+        TextUtil.typewriterPrintCentered("The fate of Pawshire rests on its paws!", 50, 160, music);
         System.out.println("=".repeat(157));
         newPlayer.displayStats();
 
@@ -60,7 +62,7 @@ public class Characters {
 
     public void showNPCEncounter(String playerName) {
         TextUtil.clearScreen();
-        TextUtil.printTitle("PAWSHIRE VILLAGE");
+        TextUtil.typewriterPrintCenteredWithBorder("PAWSHIRE VILLAGE", music);
 
         NPC maximo = new NPC("Maximo", "Wise old cat mentor");
         maximo.speak("Ah, " + playerName + "... you've returned, the Asonians took our kin to the Tower of Tails.");
@@ -78,8 +80,8 @@ public class Characters {
         Main.getIntInput(1, 3);
 
         System.out.println("\n" + "=".repeat(157));
-        TextUtil.typewriterPrintCentered("With courage burning bright, " + playerName + " journeys to Asonia", 35);
-        TextUtil.typewriterPrintCentered("to reclaim Pawshire's freedom.", 35);
+        TextUtil.typewriterPrintCentered("With courage burning bright, " + playerName + " journeys to Asonia", 50, 160, music);
+        TextUtil.typewriterPrintCentered("to reclaim Pawshire's freedom.", 50, 160, music);
         System.out.println("=".repeat(157));
         TextUtil.pause(2000);
     }

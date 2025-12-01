@@ -1,6 +1,7 @@
 package entity;
 
 import core.Main;
+import util.MusicUtil;
 import util.TextUtil;
 
 public class Enemy {
@@ -13,7 +14,8 @@ public class Enemy {
     private int turnCount;
     private boolean canDefend;
     private String idleAscii;   
-    private String color; 
+    private String color;
+    public MusicUtil music = new MusicUtil();
 
     public Enemy(String name, int level, int maxHp, int defense, int[] attacks, String idleAscii, String color) {
     this.name = name;
@@ -34,7 +36,7 @@ public class Enemy {
         currentHp -= actualDamage;
         if (currentHp < 0) currentHp = 0;
 
-        TextUtil.typewriterPrint(name + " takes " + actualDamage + " damage! HP: " + currentHp + "/" + maxHp);
+        TextUtil.typewriterPrint(name + " takes " + actualDamage + " damage! HP: " + currentHp + "/" + maxHp, music);
     }
 
     public int performAction() {
@@ -43,13 +45,13 @@ public class Enemy {
     // Special attack
         if (level == 3 && turnCount % 3 == 0) {
             System.out.println(idleAscii);
-            TextUtil.typewriterPrint(name + " unleashes a devastating special attack!");
+            TextUtil.typewriterPrint(name + " unleashes a devastating special attack!", music);
             return 250;
         }
 
     // Defensive
         if (canDefend && Main.random.nextInt(100) < 30) {
-            TextUtil.typewriterPrint(name + " takes a defensive stance!");
+            TextUtil.typewriterPrint(name + " takes a defensive stance!", music);
             return 0;
         }
 
@@ -58,7 +60,7 @@ public class Enemy {
         int damage = attacks[attackIndex];
 
         System.out.println(idleAscii);
-        TextUtil.typewriterPrint(name + " attacks with force!");
+        TextUtil.typewriterPrint(name + " attacks with force!", music);
 
     return damage;
 }
