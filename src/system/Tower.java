@@ -99,7 +99,7 @@ public class Tower {
 """;
         if (!battleLevel(player, 2, "Miss Mice's Den",
                         "The tunnels whisper danger. The Rat Queen stirs within.",
-                        new Enemy("Miss Mice", 2, 200, 30, new int[]{8000, 12000, 16000}, miceArt, "grey"))) {
+                        new Enemy("Miss Mice", 2, 200, 30, new int[]{8000, 120, 160}, miceArt, "grey"))) {
             return false;
         }
         rescuePrisoner("Necko");
