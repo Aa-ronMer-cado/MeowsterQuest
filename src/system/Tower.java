@@ -41,8 +41,8 @@ public class Tower {
             // Retry the level
             player.restoreToFull();
             return battleLevel(player, level, title, dialogue,
-                                new Enemy(enemy.getName(), enemy.getLevel(), 
-                                        enemy.getMaxHp(), enemy.getDefense(), 
+                                new Enemy(enemy.getName(), enemy.getLevel(),
+                                        enemy.getMaxHp(), enemy.getDefense(),
                                         enemy.getAttacks(), enemy.getIdleAscii(),
                                         enemy.getColor()));
         }

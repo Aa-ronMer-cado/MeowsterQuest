@@ -43,8 +43,26 @@ public class TextUtil {
     }
 
     public static void printCentered(String text, int width) {
+        System.out.println(getCenteredText(text, width));
+    }
+
+    private static String getCenteredText(String text, int width) {
         int padding = Math.max(0, (width - text.length()) / 2);
-        System.out.println(" ".repeat(padding) + text);
+        return " ".repeat(padding) + text;
+    }
+
+    /* ---------------------- TYPEWRITER PRINTING ---------------------- */
+
+    public static void typewriterPrint(String text) {
+        typewriterPrint(text, 40);
+    }
+
+    public static void typewriterPrint(String text, int delayMs) {
+        for (char c : text.toCharArray()) {
+            System.out.print(c);
+            sleep(delayMs);
+        }
+        System.out.println();
     }
 
     public static void printTitle(String title) {
@@ -67,6 +85,7 @@ public class TextUtil {
 
     private static void sleep(int ms) {
         try {
+            Thread.sleep(ms);
             Thread.sleep(ms);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
