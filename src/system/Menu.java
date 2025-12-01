@@ -11,7 +11,7 @@ public class Menu {
     public int showMainMenu() {
         Main.clearScreen();
         //music.playBGM("src/resource/BGMforWholeGame.wav");
-        TextUtil.typewriterPrintCenteredWithBorder("MEOWSTERQUEST: THE RISE OF PAWSHIRE", 50, 160, music);
+        TextUtil.printTitle("MEOWSTERQUEST: THE RISE OF PAWSHIRE");
 
         System.out.println();
         System.out.println("MAIN MENU"); 
@@ -64,24 +64,24 @@ public class Menu {
         music.playSFX("src/resource/VictorySound.wav");
         TextUtil.printTitle("VICTORY!");
 
-        TextUtil.typewriterPrintCentered("Pawshire is restored! Calm returns to the land...", 40);
+        TextUtil.printCentered("Pawshire is restored! Calm returns to the land...");
         System.out.println();
         TextUtil.pause(1500);
 
-        TextUtil.typewriterPrintCentered("The citizens cheer for " + playerName + "!", 35);
+        TextUtil.printCentered("The citizens cheer for " + playerName + "!");
         TextUtil.pause(1000);
 
         System.out.println();
 
-        TextUtil.typewriterPrint("[Prisoner]: \"Because of you, our kin are free at last!\"", music);
+        TextUtil.typewriterPrint("[Prisoner]: \"Because of you, our kin are free at last!\"");
         TextUtil.pause(1000);
 
-        TextUtil.typewriterPrint("[Prisoner]: \"Pawshire will never forget your courage and sacrifice.\"", music);
+        TextUtil.typewriterPrint("[Prisoner]: \"Pawshire will never forget your courage and sacrifice.\"");
         TextUtil.pause(700);
 
         System.out.println();
-        TextUtil.typewriterPrintCentered("Prisoners reunite!", 40);
-        TextUtil.typewriterPrintCentered("Rowma, Necko, and Cleo are safe!", 35);
+        TextUtil.printCentered("Prisoners reunite!");
+        TextUtil.printCentered("Rowma, Necko, and Cleo are safe!");
         TextUtil.pause(2000);
     }
 
@@ -95,15 +95,15 @@ public class Menu {
         System.out.println();
         TextUtil.printTitle("THANK YOU FOR PLAYING!");
 
-        TextUtil.typewriterPrintCentered("Your courage has guided Pawshire to freedom.", 40, 157);
-        TextUtil.typewriterPrintCentered("May your journey always be filled with", 40, 157);
-        TextUtil.typewriterPrintCentered("bravery, wonder, and kindness.", 40, 157);
+        TextUtil.printCentered("Your courage has guided Pawshire to freedom.");
+        TextUtil.printCentered("May your journey always be filled with");
+        TextUtil.printCentered("bravery, wonder, and kindness.");
 
-        TextUtil.typewriterPrint("\n=== CREDITS ===", 100, music);
-        TextUtil.typewriterPrint("MEO\\V3X", 100, music);
-        TextUtil.typewriterPrint("Programming: Java OOP PROGRAMMING", 100, music);
-        TextUtil.typewriterPrint("Thanks for playing!", 100, music);
-        TextUtil.typewriterPrint("\nPress Enter to return to main menu...", 100,music);
+        TextUtil.typewriterPrint("\n=== CREDITS ===");
+        TextUtil.typewriterPrint("MEO\\V3X");
+        TextUtil.typewriterPrint("Programming: Java OOP PROGRAMMING");
+        TextUtil.typewriterPrint("Thanks for playing!");
+        TextUtil.typewriterPrint("\nPress Enter to return to main menu...");
         Main.scanner.nextLine();
     }
 }

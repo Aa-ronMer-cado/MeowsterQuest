@@ -18,18 +18,17 @@ public class Enemy {
     public MusicUtil music = new MusicUtil();
 
     public Enemy(String name, int level, int maxHp, int defense, int[] attacks, String idleAscii, String color) {
-    this.name = name;
-    this.level = level;
-    this.maxHp = maxHp;
-    this.currentHp = maxHp;
-    this.defense = defense;
-    this.attacks = attacks;
-    this.idleAscii = idleAscii;        
-    this.color = color;
-    this.turnCount = 0;
-    this.canDefend = level >= 2;
-}
-
+        this.name = name;
+        this.level = level;
+        this.maxHp = maxHp;
+        this.currentHp = maxHp;
+        this.defense = defense;
+        this.attacks = attacks;
+        this.idleAscii = idleAscii;        
+        this.color = color;
+        this.turnCount = 0;
+        this.canDefend = level >= 2;
+    }
 
     public void takeDamage(int damage) {
         int actualDamage = Math.max(0, damage - defense);
@@ -42,38 +41,36 @@ public class Enemy {
     public int performAction() {
         turnCount++;
 
-    // Special attack
+        // Special attack
         if (level == 3 && turnCount % 3 == 0) {
             System.out.println(idleAscii);
             TextUtil.typewriterBlip(name + " unleashes a devastating special attack!", 100, music);
             return 250;
         }
 
-    // Defensive
+        // Defensive
         if (canDefend && Main.random.nextInt(100) < 30) {
             TextUtil.typewriterBlip(name + " takes a defensive stance!", 100,music);
             return 0;
         }
 
-    // Normal attack
+        // Normal attack
         int attackIndex = Main.random.nextInt(attacks.length);
         int damage = attacks[attackIndex];
 
         System.out.println(idleAscii);
         TextUtil.typewriterBlip(name + " attacks with force!", 100, music);
 
-    return damage;
-}
-
+        return damage;
+    }
 
     public void displayStats() {
         System.out.println("\n--- " + name + " Stats ---");
-        System.out.println(idleAscii); // SHOW ASCII EVERY TIME ENEMY APPEARS
+        System.out.println(idleAscii);
         System.out.println("Level: " + level);
         System.out.println("HP: " + currentHp + "/" + maxHp);
         System.out.println("DEF: " + defense);
-}
-
+    }
 
     // Getters
     public String getName() { return name; }

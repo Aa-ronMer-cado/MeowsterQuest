@@ -15,7 +15,7 @@ public class NPC {
 
     public void speak(String dialogue) {
         System.out.print("\n[" + name + "]: ");
-        TextUtil.typewriterPrint(dialogue, music);
+        TextUtil.typewriterPrint(dialogue);
     }
 
     public String getName() { return name; }

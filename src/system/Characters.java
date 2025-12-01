@@ -12,7 +12,7 @@ public class Characters {
     public MusicUtil music = new MusicUtil();
     
     public Player createCharacter() {
-        TextUtil.typewriterPrintCenteredWithBorder("CHARACTER CREATION", music);
+        TextUtil.printTitle("CHARACTER CREATION");
 
         System.out.print("Enter your cat's name: ");
         String name = Main.scanner.nextLine().trim();
@@ -50,9 +50,9 @@ public class Characters {
 
         TextUtil.clearScreen();
         System.out.println("\n" + "=".repeat(157));
-        TextUtil.typewriterPrintCentered("The " + color.ColoredName() + " " + breed.name() + 
-            " named " + name + " is ready for battle! It leaps into action, claws flashing and eyes burning with courage.",50, 160, music);
-        TextUtil.typewriterPrintCentered("The fate of Pawshire rests on its paws!", 50, 160, music);
+        TextUtil.printCentered("The " + color.ColoredName() + " " + breed.name() + 
+            " named " + name + " is ready for battle! It leaps into action, claws flashing and eyes burning with courage.");
+        TextUtil.printCentered("The fate of Pawshire rests on its paws!");
         System.out.println("=".repeat(157));
         newPlayer.displayStats();
 
@@ -62,7 +62,7 @@ public class Characters {
 
     public void showNPCEncounter(String playerName) {
         TextUtil.clearScreen();
-        TextUtil.typewriterPrintCenteredWithBorder("PAWSHIRE VILLAGE", music);
+        TextUtil.printTitle("PAWSHIRE VILLAGE");
 
         NPC maximo = new NPC("Maximo", "Wise old cat mentor");
         maximo.speak("Ah, " + playerName + "... you've returned, the Asonians took our kin to the Tower of Tails.");
@@ -80,8 +80,8 @@ public class Characters {
         Main.getIntInput(1, 3);
 
         System.out.println("\n" + "=".repeat(157));
-        TextUtil.typewriterPrintCentered("With courage burning bright, " + playerName + " journeys to Asonia", 50, 160, music);
-        TextUtil.typewriterPrintCentered("to reclaim Pawshire's freedom.", 50, 160, music);
+        TextUtil.printCentered("With courage burning bright, " + playerName + " journeys to Asonia");
+        TextUtil.printCentered("to reclaim Pawshire's freedom.");
         System.out.println("=".repeat(157));
         TextUtil.pause(2000);
     }

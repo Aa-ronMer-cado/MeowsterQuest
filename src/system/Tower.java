@@ -96,7 +96,7 @@ public class Tower {
      \\\\  _  /--'         `
     ___)( )(___
    (((__) (__)))
-            """;
+""";
         if (!battleLevel(player, 2, "Miss Mice's Den",
                         "The tunnels whisper danger. The Rat Queen stirs within.",
                         new Enemy("Miss Mice", 2, 200, 30, new int[]{8000, 12000, 16000}, miceArt, "grey"))) {
@@ -120,10 +120,8 @@ public class Tower {
   '`._     //   )     //
    \\\\  |`-,-|  //c-'7 //
     ) \\\\ (_,| |   // (_
-   ((_//   ((_;)  \\\\_)))
-
-
-            """;
+   ((_//   ((_;)  \\\\_))
+""";
         if (!battleLevel(player, 3, "Mordog's Fortress",
                         "Beyond these gates lies Mordog, the tyrant of Asonia.",
                         new Enemy("Mordog", 3, 200, 80, new int[]{100, 120, 150, 200}, mordogArt, "orange"))) {

@@ -51,7 +51,7 @@ public class TextUtil {
         System.out.print(" ".repeat(padding));
         for (char c : text.toCharArray()) {
             System.out.print(c);
-            sleep(delayMs);
+            sleep(50);
         }
         System.out.println();
     }
