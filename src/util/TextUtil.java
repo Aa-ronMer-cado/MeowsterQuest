@@ -68,7 +68,7 @@ public class TextUtil {
     /* ---------------------- TYPEWRITER PRINT WITH SOUND ---------------------- */
 
     public static void typewriterPrint(String text, MusicUtil musicUtil) {
-        typewriterPrint(text, 40, musicUtil);
+        typewriterPrint(text, 50, musicUtil);
     }
 
     public static void typewriterPrint(String text, int delayMs, MusicUtil musicUtil) {

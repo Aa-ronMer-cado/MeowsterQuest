@@ -25,18 +25,18 @@ public class Tower {
             player.levelUp(level);
             music.playSFX("src/resource/VictorySound.wav");
             music.printWithTypingSFX(title, level, dialogue);
-            TextUtil.typewriterPrint("\n✨ VICTORY! ✨");
-            TextUtil.typewriterPrint("+" + 100 + " Max HP");
-            TextUtil.typewriterPrint("Weapon upgraded to Level " + (level + 1));
-            TextUtil.typewriterPrint("Armor upgraded to Level " + (level + 1));
+            TextUtil.typewriterPrint("\n✨ VICTORY! ✨", music);
+            TextUtil.typewriterPrint("+" + 100 + " Max HP", music);
+            TextUtil.typewriterPrint("Weapon upgraded to Level " + (level + 1), music);
+            TextUtil.typewriterPrint("Armor upgraded to Level " + (level + 1),music);
             TextUtil.pause(1000);
             return true;
         } else {
             music.stopBGM();
             music.playSFX("src/resource/Defeat.wav");
-            TextUtil.typewriterPrint("\n💀 DEFEAT 💀");
+            TextUtil.typewriterPrint("\n------ DEFEAT ------",500, music);
             TextUtil.pause(3000);
-            TextUtil.typewriterPrint("Returning to checkpoint...");
+            TextUtil.typewriterPrint("Returning to checkpoint...........",500, music);
             TextUtil.pause(2000);
 
             // Retry the level

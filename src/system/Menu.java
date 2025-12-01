@@ -74,10 +74,10 @@ public class Menu {
 
         System.out.println();
 
-        TextUtil.typewriterPrint("[Prisoner]: \"Because of you, our kin are free at last!\"", 40);
+        TextUtil.typewriterPrint("[Prisoner]: \"Because of you, our kin are free at last!\"", music);
         TextUtil.pause(1000);
 
-        TextUtil.typewriterPrint("[Prisoner]: \"Pawshire will never forget your courage and sacrifice.\"", 40);
+        TextUtil.typewriterPrint("[Prisoner]: \"Pawshire will never forget your courage and sacrifice.\"", music);
         TextUtil.pause(700);
 
         System.out.println();
@@ -100,11 +100,11 @@ public class Menu {
         TextUtil.typewriterPrintCentered("May your journey always be filled with", 40, 157);
         TextUtil.typewriterPrintCentered("bravery, wonder, and kindness.", 40, 157);
 
-        TextUtil.typewriterPrint("\n=== CREDITS ===", 100);
-        TextUtil.typewriterPrint("MEO\\V3X", 100);
-        TextUtil.typewriterPrint("Programming: Java OOP PROGRAMMING", 100);
-        TextUtil.typewriterPrint("Thanks for playing!", 100);
-        TextUtil.typewriterPrint("\nPress Enter to return to main menu...", 100);
+        TextUtil.typewriterPrint("\n=== CREDITS ===", 100, music);
+        TextUtil.typewriterPrint("MEO\\V3X", 100, music);
+        TextUtil.typewriterPrint("Programming: Java OOP PROGRAMMING", 100, music);
+        TextUtil.typewriterPrint("Thanks for playing!", 100, music);
+        TextUtil.typewriterPrint("\nPress Enter to return to main menu...", 100,music);
         Main.scanner.nextLine();
     }
 }
