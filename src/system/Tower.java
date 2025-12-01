@@ -128,6 +128,7 @@ public class Tower {
             return false;
         }
         rescuePrisoner("Cleo");
+        music.stopBGM();
 
         return true;
     }

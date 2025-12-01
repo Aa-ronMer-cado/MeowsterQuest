@@ -33,7 +33,6 @@ public class Game {
         int choice = menuManager.showMainMenu();
 
         if (choice == 1) {
-            //SFX SOUND MEOWING
             TextUtil.pause(1000);
             startGame();
         } else {
