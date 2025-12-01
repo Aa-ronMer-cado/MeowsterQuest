@@ -2,11 +2,14 @@ package system;
 
 import core.Main;
 import util.TextUtil;
+import util.MusicUtil;
 
 public class Menu {
 
+    public MusicUtil music = new MusicUtil();
     public int showMainMenu() {
         Main.clearScreen();
+        //music.playBGM("resource/BGMforWholeGame.wav");
         TextUtil.printTitle("MEOWSTERQUEST: THE RISE OF PAWSHIRE");
 
         System.out.println();
@@ -41,7 +44,7 @@ public class Menu {
         }
         System.out.println();
 
-        TextUtil.printCentered("""
+        TextUtil.printMiddle("""
                                                 |>>>
                                                 |
                                             _  _|_  _        
@@ -64,6 +67,7 @@ public class Menu {
 
     public void showVictorySequence(String playerName) {
         Main.clearScreen();
+        music.playSFX("src/resource/VictorySound.wav");
         TextUtil.printTitle("VICTORY!");
 
         TextUtil.typewriterPrintCentered("Pawshire is restored! Calm returns to the land...", 40);

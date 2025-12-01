@@ -1,8 +1,42 @@
+// TextUtil.java
 package util;
 
 public class TextUtil {
 
+    private static final String TYPING_SFX_PATH = "audio/TypingSound.wav"; // classpath resource
     public static final int DEFAULT_WIDTH = 160;
+    public MusicUtil music = new MusicUtil();
+
+    public static void typewriterPrintCentered(String text, int delayMs, int width, MusicUtil musicUtil) {
+        int padding = Math.max(0, (width - text.length()) / 2);
+
+        // start typing sound
+        musicUtil.startTypingSFX(TYPING_SFX_PATH);
+
+        System.out.print(" ".repeat(padding));
+        for (char c : text.toCharArray()) {
+            System.out.print(c);
+            sleep(delayMs);
+        }
+        System.out.println();
+
+        // ensure sound stops even if an exception occurs
+        musicUtil.stopTypingSFX();
+    }
+
+    public static void typewriterPrint(String text, int delayMs, MusicUtil musicUtil) {
+        musicUtil.startTypingSFX(TYPING_SFX_PATH);
+        for (char c : text.toCharArray()) {
+            System.out.print(c);
+            sleep(delayMs);
+        }
+        System.out.println();
+        musicUtil.stopTypingSFX();
+    }
+
+    public static void typewriterPrint(String text, MusicUtil musicUtil) {
+        typewriterPrint(text, 40, musicUtil);
+    }
 
     public static void printCentered(String text) {
         printCentered(text, DEFAULT_WIDTH);
@@ -11,24 +45,6 @@ public class TextUtil {
     public static void printCentered(String text, int width) {
         int padding = Math.max(0, (width - text.length()) / 2);
         System.out.println(" ".repeat(padding) + text);
-    }
-
-    public static void typewriterPrintCentered(String text, int delayMs) {
-        typewriterPrintCentered(text, delayMs, DEFAULT_WIDTH);
-    }
-
-    public static void typewriterPrintCentered(String text, int delayMs, int width) {
-        int padding = Math.max(0, (width - text.length()) / 2);
-        System.out.print(" ".repeat(padding));
-        for (char c : text.toCharArray()) {
-            System.out.print(c);
-            try {
-                Thread.sleep(delayMs);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
-        }
-        System.out.println();
     }
 
     public static void printTitle(String title) {
@@ -44,36 +60,21 @@ public class TextUtil {
         System.out.println("=".repeat(width));
     }
 
-
     public static void printMiddle(String title, int width) {
         int spacing = Math.max(0, (width - title.length()) / 2);
-        String space = " ".repeat(spacing);
-
-        System.out.println(space + title);
+        System.out.println(" ".repeat(spacing) + title);
     }
 
-    //TO DELAY TEXT
-    public static void pause(int milliseconds) {
+    private static void sleep(int ms) {
         try {
-            Thread.sleep(milliseconds);
+            Thread.sleep(ms);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
     }
 
-    public static void typewriterPrint(String text, int delayMs) {
-        for (char c : text.toCharArray()) {
-            System.out.print(c);
-            try {
-                Thread.sleep(delayMs);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
-        }
-        System.out.println();
+    public static void pause(int milliseconds) {
+        sleep(milliseconds);
     }
 
-    public static void typewriterPrint(String text) {
-        typewriterPrint(text, 40);
-    }
 }

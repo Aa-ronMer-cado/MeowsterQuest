@@ -5,20 +5,25 @@ import core.Main;
 import entity.Enemy;
 import entity.player.Player;
 import util.TextUtil;
+import util.MusicUtil;
 
 public class Tower {
+    public MusicUtil music = new MusicUtil();
     public boolean battleLevel(Player player, int level, String title, String dialogue, Enemy enemy) {
         Main.clearScreen();
+        music.playBGM("src/resource/TowerMusic.wav");
         TextUtil.printTitle("LEVEL " + level + " - " + title);
         TextUtil.typewriterPrintCentered(dialogue, 40);
         System.out.println();
-        Main.pause(1000);
+        TextUtil.pause(1000);
 
         BattleSystem battle = new BattleSystem(player, enemy);
         boolean victory = battle.startBattle();
 
         if (victory) {
             player.levelUp(level);
+            music.playSFX("src/resource/VictorySound.wav");
+            music.printWithTypingSFX(title, level, dialogue);
             TextUtil.typewriterPrint("\n✨ VICTORY! ✨");
             TextUtil.typewriterPrint("+" + 100 + " Max HP");
             TextUtil.typewriterPrint("Weapon upgraded to Level " + (level + 1));
@@ -26,12 +31,15 @@ public class Tower {
             Main.pause(1000);
             return true;
         } else {
+            music.stopBGM();
+            music.playSFX("src/resource/Defeat.wav");
             TextUtil.typewriterPrint("\n💀 DEFEAT 💀");
-            Main.pause(5000);
-            System.out.println("Returning to checkpoint...");
-            Main.pause(5000);
+            Main.pause(3000);
+            TextUtil.typewriterPrint("Returning to checkpoint...", 500);
+            Main.pause(10000);
 
             // Retry the level
+            player.restoreToFull();
             return battleLevel(player, level, title, dialogue,
                                 new Enemy(enemy.getName(), enemy.getLevel(), 
                                         enemy.getMaxHp(), enemy.getDefense(), 
@@ -89,7 +97,7 @@ public class Tower {
             """;
         if (!battleLevel(player, 2, "Miss Mice's Den ",
                         "The tunnels whisper danger. The Rat Queen stirs within.",
-                        new Enemy("Miss Mice", 2, 200, 30, new int[]{80, 120, 160}, miceArt, "grey"))) {
+                        new Enemy("Miss Mice", 2, 200, 30, new int[]{8000, 12000, 16000}, miceArt, "grey"))) {
             return false;
         }
         rescuePrisoner("Necko");

@@ -164,6 +164,11 @@ public class Player {
         return defense + armorBonus;
     }
 
+    public void restoreToFull() {
+    currentHp = maxHp;
+    energy = maxEnergy;
+}
+
     // Getters
     public String getName() { return name; }
     public int getCurrentHp() { return currentHp; }
