@@ -69,7 +69,7 @@ public class Characters {
         TextUtil.pause(1500);
 
         NPC wankie = new NPC("Wankie", "Maximo's curious son");
-        wankie.speak("They took Rowma, Necko, and Cleo! Please, help us!");
+        wankie.speak("They took Rowma, Necko, and Kira! Please, help us!");
         TextUtil.pause(1500);
 
         System.out.println("\n=== Your Response ===");

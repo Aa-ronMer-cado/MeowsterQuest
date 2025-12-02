@@ -127,9 +127,8 @@ public class Tower {
                         new Enemy("Mordog", 3, 200, 80, new int[]{100, 120, 150, 200}, mordogArt, "orange"))) {
             return false;
         }
-        rescuePrisoner("Cleo");
         music.stopBGM();
-
+        rescuePrisoner("Kira");
         return true;
     }
 }

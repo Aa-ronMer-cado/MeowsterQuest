@@ -146,22 +146,28 @@ public class TextUtil {
         music.stopSFX();
     }
 
-    public static void typewriterBlipCentered(String text, int delayMs, int width, MusicUtil music) {
-        int padding = Math.max(0, (width - text.length()) / 2);
+public static void typewriterBlipCentered(String text, int delayMs, int width, MusicUtil music) {
+    String[] lines = text.split("\n");
+
+    for (String line : lines) {
+        int padding = Math.max(0, (width - line.length()) / 2);
         System.out.print(" ".repeat(padding));
 
-        for (char c : text.toCharArray()) {
-            System.out.print(c);
-            music.playSFX(BLIP_SFX);
-            sleep(delayMs);
+            for (char c : line.toCharArray()) {
+                System.out.print(c);
+                music.playSFX(BLIP_SFX);
+                sleep(delayMs);
+            }
+            System.out.println();
         }
-        System.out.println();
+
         music.stopSFX();
     }
 
     public static void typewriterBlipCentered(String text, int delayMs, MusicUtil music) {
         typewriterBlipCentered(text, delayMs, DEFAULT_WIDTH, music);
     }
+
 
     public static void typewriterBlipCenteredWithBorder(String text, int delayMs, int width, MusicUtil music) {
         String border = "=".repeat(width);

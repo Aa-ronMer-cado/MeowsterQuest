@@ -12,7 +12,6 @@ public class BattleSystem {
     public MusicUtil music = new MusicUtil();
     private final Player player;
     private final Enemy enemy;
-    private int radiantBurstBonus = 0;
 
     public BattleSystem(Player player, Enemy enemy) {
         this.player = player;
@@ -20,10 +19,11 @@ public class BattleSystem {
     }
 
     public boolean startBattle() {
-        TextUtil.printCentered("\n--- BATTLE START! ---\n");
-        player.displayStats();
-        System.out.println();
+        TextUtil.typewriterBlipCentered("\n--- BATTLE START! ---\n", 100 , 160, music);
         enemy.displayStats();
+        TextUtil.pause(2000);
+        System.out.println("\n");
+        player.displayStats();
         TextUtil.pause(2000);
 
         while (player.isAlive() && enemy.isAlive()) {
@@ -42,11 +42,10 @@ public class BattleSystem {
 
     private void playerTurn() {
         TextUtil.clearScreen();
-        TextUtil.typewriterBlip("---YOUR TURN---", 100, music);
+        TextUtil.typewriterBlipCentered("---YOUR TURN---", 100, music);
 
-        player.displayStats();
+        TextUtil.pause(1000);
         System.out.println();
-        enemy.displayStats();
 
         Attack[] attacks = player.getAttacks();
 
@@ -67,22 +66,21 @@ public class BattleSystem {
         } else {
             showPlayerAttackArt();
             int damage = player.attack(choice - 1);
-
-            if (radiantBurstBonus > 0 && damage > 0) {
-                damage += radiantBurstBonus;
-                System.out.println(ColorUtil.orange(" Radiant Burst adds " + radiantBurstBonus + " bonus damage!"));
-                radiantBurstBonus = 0;
-            }
-
+            TextUtil.pause(800);
             enemy.takeDamage(damage);
+            TextUtil.pause(1200);
         }
 
         player.regenerateEnergy();
         player.incrementTurn();
 
-        // Only ORANGE uses bonus damage
+        // Check if ORANGE's Radiant Burst should trigger
         if (player.getColor().name().equals("ORANGE") && player.getTurnCount() % 3 == 0) {
-            radiantBurstBonus = 300;
+            TextUtil.pause(500);
+            showPlayerAttackArt();
+            TextUtil.pause(500);
+            System.out.println(ColorUtil.orange("\n Radiant Burst explodes for 300 damage!"));
+            enemy.takeDamage(300);
         }
     }
 
@@ -95,11 +93,11 @@ public class BattleSystem {
 
     private void enemyTurn() {
         TextUtil.clearScreen();
-        TextUtil.typewriterBlip("---ENEMY TURN---",100, music);
+        TextUtil.typewriterBlipCentered("---ENEMY TURN---",100, music);
 
         int dmg = enemy.performAction();
+        TextUtil.pause(800);
         if (dmg > 0) player.takeDamage(dmg);
-
-        TextUtil.pause(500);
+        TextUtil.pause(1200);
     }
 }

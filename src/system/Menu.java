@@ -87,7 +87,7 @@ public class Menu {
 
     public void showEndScreen() { 
         Main.clearScreen();
-        TextUtil.printCentered("----- GAME COMPLETE ------");
+        TextUtil.typewriterBlipCentered("----- GAME COMPLETE ------", 100,160, music);
 
         System.out.print("Rate your experience (1-5): ");
         Main.getIntInput(1, 5);
@@ -95,9 +95,9 @@ public class Menu {
         System.out.println();
         TextUtil.printTitle("THANK YOU FOR PLAYING!");
 
-        TextUtil.printCentered("Your courage has guided Pawshire to freedom.");
-        TextUtil.printCentered("May your journey always be filled with");
-        TextUtil.printCentered("bravery, wonder, and kindness.");
+        TextUtil.typewriterBlipCentered("Your courage has guided Pawshire to freedom.", 100, music);
+        TextUtil.typewriterBlipCentered("May your journey always be filled with", 100, music);
+        TextUtil.typewriterBlipCentered("bravery, wonder, and kindness.", 100, music);
 
         TextUtil.typewriterPrint("\n=== CREDITS ===", music);
         TextUtil.typewriterPrint("MEO\\V3X", music);

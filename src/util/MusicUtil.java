@@ -18,6 +18,11 @@ public class MusicUtil {
             AudioInputStream audio = AudioSystem.getAudioInputStream(new File(filePath));
             bgmClip = AudioSystem.getClip();
             bgmClip.open(audio);
+
+            // Lower BGM volume
+            FloatControl gainControl = (FloatControl) bgmClip.getControl(FloatControl.Type.MASTER_GAIN);
+            gainControl.setValue(-20.0f); // Reduce by 20 decibels
+
             bgmClip.loop(Clip.LOOP_CONTINUOUSLY);
             bgmClip.start();
         } catch (Exception e) {
