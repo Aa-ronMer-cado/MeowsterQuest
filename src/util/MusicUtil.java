@@ -9,9 +9,9 @@ public class MusicUtil {
     private Clip sfxClip;
     private Clip typingClip;
 
-    /* ---------------------- BACKGROUND MUSIC ---------------------- */
+    /* ---------------------- INTRO BACKGROUND MUSIC ---------------------- */
 
-    public void playBGM(String filePath) {
+    public void playIntroBGM(String filePath) {
         stopBGM();
 
         try {
@@ -19,9 +19,9 @@ public class MusicUtil {
             bgmClip = AudioSystem.getClip();
             bgmClip.open(audio);
 
-            // Lower BGM volume
+            //BGM volume
             FloatControl gainControl = (FloatControl) bgmClip.getControl(FloatControl.Type.MASTER_GAIN);
-            gainControl.setValue(-20.0f); // Reduce by 20 decibels
+            gainControl.setValue(-10.0f);
 
             bgmClip.loop(Clip.LOOP_CONTINUOUSLY);
             bgmClip.start();
@@ -38,6 +38,25 @@ public class MusicUtil {
         }
     }
 
+    /* ---------------------- TOWER BACKGROUND MUSIC ---------------------- */
+    public void playTowerBGM(String filePath) {
+        stopBGM();
+
+        try {
+            AudioInputStream audio = AudioSystem.getAudioInputStream(new File(filePath));
+            bgmClip = AudioSystem.getClip();
+            bgmClip.open(audio);
+
+            //BGM volume
+            FloatControl gainControl = (FloatControl) bgmClip.getControl(FloatControl.Type.MASTER_GAIN);
+            gainControl.setValue(-10.0f);
+
+            bgmClip.loop(Clip.LOOP_CONTINUOUSLY);
+            bgmClip.start();
+        } catch (Exception e) {
+            System.out.println("[ERROR] Unable to play BGM -> " + e.getMessage());
+        }
+    }
     /* ---------------------- SOUND EFFECTS ---------------------- */
 
     public void playSFX(String filePath) {

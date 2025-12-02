@@ -19,7 +19,8 @@ public class BattleSystem {
     }
 
     public boolean startBattle() {
-        TextUtil.typewriterBlipCentered("\n--- BATTLE START! ---\n", 100 , 160, music);
+        TextUtil.clearScreen();
+        TextUtil.typewriterPrintCentered("\n--- BATTLE START! ---\n", music);
         enemy.displayStats();
         TextUtil.pause(2000);
         System.out.println("\n");
@@ -42,8 +43,7 @@ public class BattleSystem {
 
     private void playerTurn() {
         TextUtil.clearScreen();
-        TextUtil.typewriterBlipCentered("---YOUR TURN---", 100, music);
-
+        TextUtil.typewriterPrintCentered("---YOUR TURN---", music);
         TextUtil.pause(1000);
         System.out.println();
 
@@ -79,7 +79,7 @@ public class BattleSystem {
             TextUtil.pause(500);
             showPlayerAttackArt();
             TextUtil.pause(500);
-            System.out.println(ColorUtil.orange("\n Radiant Burst explodes for 300 damage!"));
+            System.out.println(ColorUtil.orange("\nRadiant Burst explodes for 300 damage!"));
             enemy.takeDamage(300);
         }
     }

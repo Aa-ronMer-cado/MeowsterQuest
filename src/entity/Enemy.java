@@ -13,7 +13,7 @@ public class Enemy {
     private int[] attacks;
     private int turnCount;
     private boolean canDefend;
-    private String idleAscii;   
+    private String idleAscii;
     private String color;
     public MusicUtil music = new MusicUtil();
 
@@ -24,7 +24,7 @@ public class Enemy {
         this.currentHp = maxHp;
         this.defense = defense;
         this.attacks = attacks;
-        this.idleAscii = idleAscii;        
+        this.idleAscii = idleAscii;
         this.color = color;
         this.turnCount = 0;
         this.canDefend = level >= 2;

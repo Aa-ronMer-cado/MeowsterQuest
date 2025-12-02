@@ -26,7 +26,7 @@ public class Game {
     }
 
     private void mainMenu() {
-        music.playBGM("src/resource/BGMforWholeGame.wav");
+        music.playIntroBGM("src/resource/BGMforWholeGame.wav");
         TextUtil.typewriterBlipCentered("LOADING GAME.......", 300, 160, music);
         TextUtil.pause(700);
 
@@ -42,16 +42,16 @@ public class Game {
 
     private void startGame() {
         Main.clearScreen();
-        menuManager.displayIntroduction();
+        //menuManager.displayIntroduction();
         player = characterManager.createCharacter();
-        characterManager.showNPCEncounter(player.getName());
+        //characterManager.showNPCEncounter(player.getName());
         music.stopBGM();
         boolean victory = towerManager.playTowerLevels(player);
         music.stopBGM();
 
         if (victory) {
             TextUtil.pause(1000);
-            music.playBGM("src/resource/BGMforWholeGame.wav");
+            music.playIntroBGM("src/resource/BGMforWholeGame.wav");
             victorySequence();
         }
     }

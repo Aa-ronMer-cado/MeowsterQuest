@@ -18,7 +18,7 @@ public enum CatColor {
 
     public String getAbility() { return ability; }
     public String getEffect() { return effect; }
-    
+
     // Get colored name
     public String ColoredName() {
         return switch (this) {

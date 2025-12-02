@@ -129,7 +129,7 @@ public class Player {
     }
 
     private void triggerSpecialAbility() {
-        TextUtil.typewriterBlip("\n✨ " + color.getAbility() + " activates! ", 100,music);
+        TextUtil.typewriterBlip("\n " + color.getAbility() + " activates! ", 100,music);
 
         switch (color) {
             case ORANGE:

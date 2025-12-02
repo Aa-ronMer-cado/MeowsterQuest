@@ -64,30 +64,30 @@ public class Menu {
         music.playSFX("src/resource/VictorySound.wav");
         TextUtil.printTitle("VICTORY!");
 
-        TextUtil.printCentered("Pawshire is restored! Calm returns to the land...");
+        TextUtil.typewriterPrintCentered("Pawshire is restored! Calm returns to the land...", music);
         System.out.println();
         TextUtil.pause(1500);
 
-        TextUtil.printCentered("The citizens cheer for " + playerName + "!");
+        TextUtil.typewriterPrintCentered("The citizens cheer for " + playerName + "!", music);
         TextUtil.pause(1000);
 
         System.out.println();
 
-        TextUtil.typewriterPrint("[Prisoner]: \"Because of you, our kin are free at last!\"", music);
+        TextUtil.typewriterBlip("[Prisoner]: \"Because of you, our kin are free at last!\"", 100, music);
         TextUtil.pause(1000);
 
-        TextUtil.typewriterPrint("[Prisoner]: \"Pawshire will never forget your courage and sacrifice.\"", music);
+        TextUtil.typewriterBlip("[Prisoner]: \"Pawshire will never forget your courage and sacrifice.\"", 100, music);
         TextUtil.pause(700);
 
         System.out.println();
-        TextUtil.printCentered("Prisoners reunite!");
-        TextUtil.printCentered("Rowma, Necko, and Cleo are safe!");
+        TextUtil.typewriterPrintCentered("Prisoners reunite!", music);
+        TextUtil.typewriterPrintCentered("Rowma, Necko, and Cleo are safe!", music);
         TextUtil.pause(2000);
     }
 
     public void showEndScreen() { 
         Main.clearScreen();
-        TextUtil.typewriterBlipCentered("----- GAME COMPLETE ------", 100,160, music);
+        TextUtil.typewriterPrintCentered("----- GAME COMPLETE ------", music);
 
         System.out.print("Rate your experience (1-5): ");
         Main.getIntInput(1, 5);
@@ -95,9 +95,9 @@ public class Menu {
         System.out.println();
         TextUtil.printTitle("THANK YOU FOR PLAYING!");
 
-        TextUtil.typewriterBlipCentered("Your courage has guided Pawshire to freedom.", 100, music);
-        TextUtil.typewriterBlipCentered("May your journey always be filled with", 100, music);
-        TextUtil.typewriterBlipCentered("bravery, wonder, and kindness.", 100, music);
+        TextUtil.typewriterPrintCentered("Your courage has guided Pawshire to freedom.", music);
+        TextUtil.typewriterPrintCentered("May your journey always be filled with", music);
+        TextUtil.typewriterPrintCentered("bravery, wonder, and kindness.", music);
 
         TextUtil.typewriterPrint("\n=== CREDITS ===", music);
         TextUtil.typewriterPrint("MEO\\V3X", music);

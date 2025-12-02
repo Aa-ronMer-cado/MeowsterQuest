@@ -9,10 +9,10 @@ import util.MusicUtil;
 
 public class Tower {
     public MusicUtil music = new MusicUtil();
-    
+
     public boolean battleLevel(Player player, int level, String title, String dialogue, Enemy enemy) {
         Main.clearScreen();
-        music.playBGM("src/resource/TowerMusic.wav");
+        music.playTowerBGM("src/resource/TowerMusic.wav");
         TextUtil.printTitle("LEVEL " + level + " - " + title);
         TextUtil.typewriterBlipCentered(dialogue, 40, music);
         System.out.println();
@@ -24,21 +24,21 @@ public class Tower {
         if (victory) {
             player.levelUp(level);
             music.stopBGM();
+            music.playIntroBGM("src/resource/BGMforWholeGame.wav");
             music.playSFX("src/resource/VictorySound.wav");
-            TextUtil.typewriterBlipBGM("\n--- VICTORY! ---", 100, music);
-            TextUtil.typewriterBlipBGM("+" + 100 + " Max HP",100,  music);
-            TextUtil.typewriterBlipBGM("Weapon upgraded to Level " + (level + 1), 100,music);
-            TextUtil.typewriterBlipBGM("Armor upgraded to Level " + (level + 1),100, music);
+            TextUtil.typewriterPrint("\n--- VICTORY! ---", music);
+            TextUtil.typewriterPrint("+" + 100 + " Max HP", music);
+            TextUtil.typewriterPrint("Weapon upgraded to Level " + (level + 1), music);
+            TextUtil.typewriterPrint("Armor upgraded to Level " + (level + 1), music);
             TextUtil.pause(1000);
-            music.playBGM("src/resource/TowerMusic.wav");
             return true;
         } else {
             music.stopBGM();
             music.playSFX("src/resource/Defeat.wav");
-            TextUtil.typewriterBlipBGM("\n------ DEFEAT ------",500, music);
-            TextUtil.pause(3000);
-            TextUtil.typewriterBlipBGM("Returning to checkpoint...........",500, music);
-            TextUtil.pause(2000);
+            TextUtil.typewriterBlip("\n------ DEFEAT ------",300, music);
+            TextUtil.pause(1000);
+            TextUtil.typewriterBlip("Returning to checkpoint...........",300, music);
+            TextUtil.pause(1000);
 
             // Retry the level
             player.restoreToFull();
@@ -52,8 +52,9 @@ public class Tower {
 
     public void rescuePrisoner(String name) {
         Main.clearScreen();
-        TextUtil.typewriterBlipCentered(" --- You rescued " + name + "! --- ", 100, music);
+        TextUtil.typewriterPrintCentered(" --- You rescued " + name + "! --- ", music);
         TextUtil.pause(2000);
+        music.stopBGM();
     }
 
     public boolean playTowerLevels(Player player) {
@@ -102,7 +103,7 @@ public class Tower {
                         new Enemy("Miss Mice", 2, 200, 30, new int[]{8000, 120, 160}, miceArt, "grey"))) {
             return false;
         }
-        rescuePrisoner("Necko");
+        rescuePrisoner("Bebang");
 
         // Level 3: Mordog
         String mordogArt = """

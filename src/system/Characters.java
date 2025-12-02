@@ -51,8 +51,8 @@ public class Characters {
         TextUtil.clearScreen();
         System.out.println("\n" + "=".repeat(157));
         TextUtil.typewriterPrintCentered("The " + color.ColoredName() + " " + breed.name() +
-            " named " + name + " is ready for battle! It leaps into action, claws flashing and eyes burning with courage.", 100, 160, music);
-        TextUtil.typewriterPrintCentered("The fate of Pawshire rests on its paws!", 100, 160, music);
+            " named " + name + " is ready for battle! It leaps into action, claws flashing and eyes burning with courage.", 50, 160, music);
+        TextUtil.typewriterPrintCentered("The fate of Pawshire rests on its paws!", 50, 160, music);
         System.out.println("=".repeat(157));
         newPlayer.displayStats();
 
@@ -69,7 +69,7 @@ public class Characters {
         TextUtil.pause(1500);
 
         NPC wankie = new NPC("Wankie", "Maximo's curious son");
-        wankie.speak("They took Rowma, Necko, and Kira! Please, help us!");
+        wankie.speak("They took Rowma, Bebang, and Kira! Please, help us!");
         TextUtil.pause(1500);
 
         System.out.println("\n=== Your Response ===");
@@ -80,8 +80,8 @@ public class Characters {
         Main.getIntInput(1, 3);
 
         System.out.println("\n" + "=".repeat(157));
-        TextUtil.typewriterPrintCentered("With courage burning bright, " + playerName + " journeys to Asonia", 100, 160, music);
-        TextUtil.typewriterPrintCentered("to reclaim Pawshire's freedom.", 100, 160 ,music);
+        TextUtil.typewriterPrintCentered("With courage burning bright, " + playerName + " journeys to Asonia", 50, 160, music);
+        TextUtil.typewriterPrintCentered("to reclaim Pawshire's freedom.", 50, 160 ,music);
         System.out.println("=".repeat(157));
         TextUtil.pause(2000);
     }

@@ -6,7 +6,6 @@ public class TextUtil {
 
     private static final String TYPING_SFX_PATH = "src/resource/TypeWriting.wav";
     private static final String BLIP_SFX = "src/resource/SBlip.wav";
-    private static final String BEEP_SFX = "src/resource/SBlipBGM.wav";
     public static final int DEFAULT_WIDTH = 160;
 
     /* ==========================================================
@@ -23,7 +22,7 @@ public class TextUtil {
     }
 
     /* ==========================================================
-                         MULTILINE CENTER PRINT
+                        MULTILINE CENTER PRINT
        ========================================================== */
 
     public static void printMiddle(String text) {
@@ -38,24 +37,8 @@ public class TextUtil {
     }
 
     /* ==========================================================
-                         TYPEWRITER (NO SOUND)
+                        TYPEWRITER (NO SOUND)
        ========================================================== */
-
-    public static void typewriterPrintCentered(String text, int delayMs) {
-        typewriterPrintCentered(text, delayMs, DEFAULT_WIDTH);
-    }
-
-    public static void typewriterPrintCentered(String text, int delayMs, int width) {
-        int padding = Math.max(0, (width - text.length()) / 2);
-
-        System.out.print(" ".repeat(padding));
-        for (char c : text.toCharArray()) {
-            System.out.print(c);
-            sleep(50);
-        }
-        System.out.println();
-    }
-
     public static void typewriterPrintCenteredWithBorder(String text, int delayMs) {
         typewriterPrintCenteredWithBorder(text, delayMs, DEFAULT_WIDTH);
     }
@@ -76,61 +59,68 @@ public class TextUtil {
     }
 
     /* ==========================================================
-                         TYPEWRITER (TYPING SOUND)
+                        TYPEWRITER (TYPING SOUND)
        ========================================================== */
 
-    public static void typewriterPrint(String text, MusicUtil musicUtil) {
-        typewriterPrint(text, 100, musicUtil);
+public static void typewriterPrint(String text, MusicUtil musicUtil) {
+    typewriterPrint(text, 100, musicUtil);
+}
+
+public static void typewriterPrint(String text, int delayMs, MusicUtil musicUtil) {
+    musicUtil.startTypingSFX(TYPING_SFX_PATH);
+
+    for (char c : text.toCharArray()) {
+        System.out.print(c);
+        sleep(delayMs);
     }
 
-    public static void typewriterPrint(String text, int delayMs, MusicUtil musicUtil) {
-        musicUtil.startTypingSFX(TYPING_SFX_PATH);
+    System.out.println();
+    musicUtil.stopTypingSFX();
+}
 
-        for (char c : text.toCharArray()) {
-            System.out.print(c);
-            sleep(delayMs);
-        }
+// =========================
+// CENTERED (WITH SOUND)
+// =========================
+public static void typewriterPrintCentered(String text, int delayMs, int width, MusicUtil musicUtil) {
+    int padding = Math.max(0, (width - text.length()) / 2);
 
-        System.out.println();
-        musicUtil.stopTypingSFX();
+    musicUtil.startTypingSFX(TYPING_SFX_PATH);
+
+    System.out.print(" ".repeat(padding));
+    for (char c : text.toCharArray()) {
+        System.out.print(c);
+        sleep(delayMs);
     }
 
-    public static void typewriterPrintCentered(String text, int delayMs, int width, MusicUtil musicUtil) {
-        int padding = Math.max(0, (width - text.length()) / 2);
+    System.out.println();
+    musicUtil.stopTypingSFX();
+}
 
-        musicUtil.startTypingSFX(TYPING_SFX_PATH);
+// MISSING OVERLOAD (NOW FIXED)
+public static void typewriterPrintCentered(String text, MusicUtil musicUtil) {
+    typewriterPrintCentered(text, 50, DEFAULT_WIDTH, musicUtil);
+}
+public static void typewriterPrintCenteredWithBorder(String text, int delayMs, int width, MusicUtil musicUtil) {
+    String border = "=".repeat(width);
+    int padding = Math.max(0, (width - text.length()) / 2);
 
-        System.out.print(" ".repeat(padding));
-        for (char c : text.toCharArray()) {
-            System.out.print(c);
-            sleep(delayMs);
-        }
+    System.out.println(border);
+    musicUtil.startTypingSFX(TYPING_SFX_PATH);
 
-        System.out.println();
-        musicUtil.stopTypingSFX();
+    System.out.print(" ".repeat(padding));
+    for (char c : text.toCharArray()) {
+        System.out.print(c);
+        sleep(delayMs);
     }
 
-    public static void typewriterPrintCenteredWithBorder(String text, int delayMs, int width, MusicUtil musicUtil) {
-        String border = "=".repeat(width);
-        int padding = Math.max(0, (width - text.length()) / 2);
+    System.out.println();
+    musicUtil.stopTypingSFX();
+    System.out.println(border);
+}
 
-        System.out.println(border);
-        musicUtil.startTypingSFX(TYPING_SFX_PATH);
-
-        System.out.print(" ".repeat(padding));
-        for (char c : text.toCharArray()) {
-            System.out.print(c);
-            sleep(delayMs);
-        }
-
-        System.out.println();
-        musicUtil.stopTypingSFX();
-        System.out.println(border);
-    }
-
-    public static void typewriterPrintCenteredWithBorder(String text, MusicUtil musicUtil) {
-        typewriterPrintCenteredWithBorder(text, 40, DEFAULT_WIDTH, musicUtil);
-    }
+public static void typewriterPrintCenteredWithBorder(String text, MusicUtil musicUtil) {
+    typewriterPrintCenteredWithBorder(text, 40, DEFAULT_WIDTH, musicUtil);
+}
 
     /* ==========================================================
                      TYPEWRITER BLIP (NEW FEATURE)
@@ -189,26 +179,6 @@ public static void typewriterBlipCentered(String text, int delayMs, int width, M
 
     public static void typewriterBlipCenteredWithBorder(String text, MusicUtil music) {
         typewriterBlipCenteredWithBorder(text, 40, DEFAULT_WIDTH, music);
-    }
-
-    /* ==========================================================
-                  FIXED TYPEWRITER BLIP BGM (UPDATED)
-       ========================================================== */
-
-    public static void typewriterBlipBGM(String text, int delayMs, MusicUtil music) {
-
-        // Start BGM ONCE — do NOT restart every character
-        music.startTypingSFX(BEEP_SFX);
-
-        for (char c : text.toCharArray()) {
-            System.out.print(c);
-            sleep(delayMs);
-        }
-
-        System.out.println();
-
-        // Stop BGM after printing
-        music.stopTypingSFX();
     }
 
     /* ==========================================================
