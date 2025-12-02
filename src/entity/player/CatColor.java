@@ -28,7 +28,7 @@ public enum CatColor {
             case TILAPIA -> ColorUtil.brown(this.name());
         };
     }
-    
+
     // Get colored ability text
     public String ColoredAbility() {
         return switch (this) {

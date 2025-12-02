@@ -27,7 +27,6 @@ public class Game {
 
     private void mainMenu() {
         music.playIntroBGM("src/resource/BGMforWholeGame.wav");
-        TextUtil.printTextFile("src/resource/textprint/Medal.txt");
         TextUtil.typewriterBlipCentered("LOADING GAME.......", 300, 160, music);
         TextUtil.pause(700);
 

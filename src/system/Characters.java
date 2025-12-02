@@ -10,7 +10,7 @@ import util.TextUtil;
 
 public class Characters {
     public MusicUtil music = new MusicUtil();
-    
+
     public Player createCharacter() {
         TextUtil.printTitle("CHARACTER CREATION");
 
