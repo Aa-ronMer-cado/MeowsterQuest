@@ -45,6 +45,7 @@ public class BattleSystem {
     private void playerTurn() {
         TextUtil.clearScreen();
         TextUtil.typewriterPrintCentered("---YOUR TURN---", music);
+        player.displayStats();
         TextUtil.pause(1000);
         System.out.println();
 
