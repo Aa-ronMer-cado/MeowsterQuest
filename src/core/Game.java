@@ -42,9 +42,9 @@ public class Game {
 
     private void startGame() {
         Main.clearScreen();
-        //menuManager.displayIntroduction();
+        menuManager.displayIntroduction();
         player = characterManager.createCharacter();
-        //characterManager.showNPCEncounter(player.getName());
+        characterManager.showNPCEncounter(player.getName());
         music.stopBGM();
         boolean victory = towerManager.playTowerLevels(player);
         music.stopBGM();

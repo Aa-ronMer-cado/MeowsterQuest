@@ -78,7 +78,7 @@ public class Tower {
 
         if (!battleLevel(player, 1, "Roach's Lair",
                         "The Tower rises. Roach awaits with venomous laughter.",
-                        new Enemy("Roach", 1, 1200, 0, new int[]{90, 110, 140}, roachArt, "brown"))) {
+                        new Enemy("Roach", 1, 800, 0, new int[]{90, 110, 140}, roachArt, "brown"))) {
             return false;
         }
         rescuePrisoner("Rowma");
@@ -100,7 +100,7 @@ public class Tower {
 """;
         if (!battleLevel(player, 2, "Miss Mice's Den",
                         "The tunnels whisper danger. The Rat Queen stirs within.",
-                        new Enemy("Miss Mice", 2, 1500, 30, new int[]{80, 120, 160}, miceArt, "grey"))) {
+                        new Enemy("Miss Mice", 2, 1000, 30, new int[]{80, 120, 160}, miceArt, "grey"))) {
             return false;
         }
         rescuePrisoner("Bebang");
@@ -125,7 +125,7 @@ public class Tower {
 """;
         if (!battleLevel(player, 3, "Mordog's Fortress",
                         "Beyond these gates lies Mordog, the tyrant of Asonia.",
-                        new Enemy("Mordog", 3, 2000, 80, new int[]{100, 120, 150, 200}, mordogArt, "orange"))) {
+                        new Enemy("Mordog", 3, 1200, 80, new int[]{100, 120, 150, 200}, mordogArt, "orange"))) {
             return false;
         }
         music.stopBGM();

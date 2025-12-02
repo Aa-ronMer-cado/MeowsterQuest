@@ -14,8 +14,7 @@ public class NPC {
     }
 
     public void speak(String dialogue) {
-        TextUtil.typewriterBlip("\n[" + name + "]: ", 100, music);
-        TextUtil.typewriterBlip(dialogue, 100, music);
+        TextUtil.typewriterBlip("\n[" + name + "]: " +  dialogue , 100, music);
     }
 
     public String getName() { return name; }
