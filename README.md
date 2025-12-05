@@ -111,6 +111,7 @@ java core.Main
 ```
 java -cp bin core.Main
 ```
+#### If it doesn't work, run without debugging in your compiler.
 
 ### **What can YOU do (Features)**
 1. **Add info.** Enter the name of your character
